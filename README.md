@@ -1,4 +1,6 @@
 # WebApp-noname-
 Created by Maksymilian Demitraszek
-słowiksłowik
+<<<<<<< HEAD
+=======
 suck my dick
+>>>>>>> HTML-work
