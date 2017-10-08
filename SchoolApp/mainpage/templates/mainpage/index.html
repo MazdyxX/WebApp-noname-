@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('page.static', filename='jquery.fullPage.css') }}" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('page.static', filename='jquery.fullPage.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <link href="{{ url_for('page.static', filename='main_style.css') }}" rel='stylesheet'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <script type="text/javascript" src="{{ url_for('page.static', filename='index.js') }}"></script>
+</head>
+<body>
+    <div id='fullpage'>
+        <div class='section'>
+            <div class="slider fullscreen">
+                <ul class="slides">
+                  <li>
+                    <img class="z-depth-4 " src="https://lorempixel.com/580/250/nature/1">
+                    <div class="caption center-align">
+                      <h3>Witaj w naszej aplikacji!</h3>
+                      <a onclick="login()" id="rozpocznij" class="z-depth-4 waves-effect waves-light btn" href="#" style='margin-top:10%'>Rozpocznij swoją przygodę!</a>
+                    </div>
+                  </li>
+                  <li>
+                    <img src="https://lorempixel.com/580/250/nature/2">
+                    <div class="caption center-align">
+                      <h3>Repozytorium na Githubie</h3>
+                      <button class="z-depth-4 green waves-effect waves-light btn" id="for" style='margin-top:10%'>Repozytorium</button>
+                    </div>
+                  </li>
+                </ul>
+            </div>
+        </div>
+        <div class='section'>
+            <div class='row' style='height:50%; padding:0px; margin:0px;'>
+                <div class='col s12 m6' style='height:100%'></div>
+                <div class='col s12 m6' style='background-color:black; height:100%;'></div>
+            </div>
+            <div class='row' style='height:50%'>
+                <div class='col s12 m6' style='background-color:black; height:100%;'></div>
+                <div class='col s12 m6' style='height:100%;'></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $('#fullpage').fullpage();
+            $('.slider').slider();
+        });
+    </script>
+    </body>
+</html>

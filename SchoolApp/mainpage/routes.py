@@ -1,0 +1,30 @@
+from flask import Blueprint, render_template, request, redirect
+
+
+page = Blueprint('page', __name__, template_folder='templates', static_folder='static/mainpage')
+
+def check():
+    return True
+
+@page.route('/') #mainpage
+def index():
+    content = {
+    }
+    if request.method == 'POST':
+        login();
+    if request.method == 'GET':
+        return render_template('mainpage/index.html', **content)
+
+@page.route('/login', methods=['GET','POST']) #login page
+def login():
+    if request.method == 'GET':
+        content = {
+        }
+        return render_template('loginpage/loginscreen.html', **content)
+    if request.method == 'POST':
+        if check():
+            return redirect('/teacher')
+       
+        
+
+
