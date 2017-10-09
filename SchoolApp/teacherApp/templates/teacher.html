@@ -1,68 +1,67 @@
 <html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title></title>
-        <!--<link rel="stylesheet" type="text/css" href="teacherprofile.css">-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>        
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">       
-    </head>
-    <body>
-        <nav class='purple darken-2'>
-            <div id="navcontainer" class="container">
-                <div class="nav-wrapper"> 
-                    <a href="#" class="brand-logo left"  >Nauczyciel</a>
-                    <a href="#" data-activates="slide-out" class="button-collapse right show-on-large"><i class="material-icons">menu</i></a>
-                    <ul id="slide-out" class="side-nav ">
-                        <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-                        <li><a href="#!">Second Link</a></li>
-                        <li><div class="divider"></div></li>
-                        <li><a class="subheader">Subheader</a></li>
-                        <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <div class='container'>
-            <div class='row'>
-                <div class='col s12 m6'>
-                    <div class="card indigo waves-effect waves-light z-depth-4 darken-1" style='width:100%;'>
-                        <div class="card-content white-text">
-                            <span class="card-title">Najbardziej pracowici:</span>
-                            <ol>
-                                <li>Słowik Arek</li>
-                                <li>Pekala</li>
-                            </ol>
-                        </div>
-                        <div class="card-action">
-                            <a href="#">Zobacz więcej</a>
-                        </div>
+<head>
+<title></title>
+<link rel="stylesheet" type="text/css" href="{{ url_for('teacherpage.static', filename='teacher.css') }}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<head>
+
+
+
+<body>
+       
+
+
+    <div class="container ">
+     
+      <div class="row rowborder z-depth-4">
+        
+              <div class="col s3 longcol z-depth-4">
+                
+                <div class="row rowborder colorow1 rowoddzialy z-depth-4">
+                  <div class="fontoddzialy ">Oddziały</div>
+                  </div>
+                  <div class="row firstlist colorow2 z-depth-4">
+                      <div>Placeholder</div>
                     </div>
-                </div>
-                <div class='col s12 m6'>
-                    <div class="card indigo waves-effect waves-light z-depth-4 darken-1" style='width:100%;'>
-                        <div class="card-content white-text">
-                            <span class="card-title">Najbardziej pracowici:</span>
-                            <ol>
-                                <li>Arek Słowikczek</li>
-                                <li>Arek Słowik</li>
-                                <li>Arek</li>
-                                <li>Pekala</li>
-                            </ol>
-                        </div>
-                        <div class="card-action">
-                            <a href="#">Zobacz więcej</a>
-                        </div>
-                    </div>
-                </div>
+
+                  {% for class in content['classes'] %}
+
+                  <div id="dodajodrow" class="row ">
+                      <a onclick="classswap({{class}})" id="dodajoddzialbtn" class="center waves-effect waves-light btn z-depth-4"><i class="material-icons">supervisor_account</i>{{class}}</a>
+                   </div>
+
+                  {% endfor %}
+
+              </div>
+              <div class="col s9 longcol z-depth-4">
+                  <div class="row uczniowieborderleftright rowborder colorow1 uczniowiepadding z-depth-4">
+                  <div class="fontuczniowie">Uczniowie
+                      <a  class="waves-effect waves-light btn right mright z-depth-4"><i class="material-icons left">bookmark_border</i>Dodaj oceny</a>
+                  </div></div>
+                  <div id="class_members">
+
+                  </div>
+
+              </div>
+              </div>
+
+
+              </div>
+        
             </div>
-        </div>
-    <script>
-        $(".button-collapse").sideNav({
-            edge:'right'
-        });
-    </script>
-    </body>
+
+    </div>
+    <script type="text/javascript" src="{{ url_for('page.static', filename='classswap.js') }}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script src="jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="class.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+</body>
 </html>
