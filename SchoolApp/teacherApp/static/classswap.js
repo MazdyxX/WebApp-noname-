@@ -1,9 +1,9 @@
 function classswap(id){
 $.ajax({
   type: 'GET',
-  url: "/teacher/" + id,
-  context: document.body
+  url: '/teacher/' + id,
+  context: document
 }).done(function(response) {
-  $('class_members').html(response);
+  $('html').html(response);
 });
 }

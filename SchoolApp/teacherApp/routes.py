@@ -12,7 +12,7 @@ def index():
         'classes': classes
     }
     return render_template('teacher.html', content=content)
-@teacherpage.route('/<class_id>')
+@teacherpage.route('/<class_id>', methods=['GET'])
 def class_list(class_id):
     #here will be query for students in class#
     content = {
