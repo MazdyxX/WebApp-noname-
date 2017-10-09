@@ -42,17 +42,19 @@
                   <div class="fontuczniowie">Uczniowie
                       <a  class="waves-effect waves-light btn right mright z-depth-4"><i class="material-icons left">bookmark_border</i>Dodaj oceny</a>
                   </div></div>
+                  {% block class_members %}
                   <div id="class_members">
 
-                  </div>
 
+                  </div>
+                  {% endblock %}
               </div>
               </div>
               </div>
             </div>
 
     </div>
-    <script type="text//javascript" src="{{ url_for('teacherpage.static', filename='classswap.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('teacherpage.static', filename='classswap.js') }}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script src="jquery-3.2.1.min.js"></script>

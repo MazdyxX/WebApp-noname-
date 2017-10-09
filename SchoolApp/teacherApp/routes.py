@@ -12,11 +12,24 @@ def index():
         'classes': classes
     }
     return render_template('teacher.html', content=content)
-@teacherpage.route('/<class_id>', methods=['GET'])
+@teacherpage.route('/<class_id>', methods=['POST','GET']) # need to be blocked bz writing custom method
 def class_list(class_id):
     #here will be query for students in class#
     content = {
         'classes': classes,
-        'students_ofclass': students
+        'students_ofclass': students,
+        'class_id': class_id,
     }
     return render_template('classlist.html', content = content)
+
+@teacherpage.route('/edit/<class_id>', methods=['POST','GET'])
+def classForm(class_id):
+    content = {
+        'classes': classes,
+        'students_ofclass': students,
+        'class_id': class_id,
+    }
+    return render_template('classform.html', content = content)
+
+
+

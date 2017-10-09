@@ -1,0 +1,14 @@
+<form class='col s12'>
+{% for student in content['students_ofclass'] %}
+<div class='row'>
+    <div class='input-field col s6'>
+        <input placeholder='Nazwisko i imię' id='first_name' type='text' class='validate' value="{{student}}"><label for='first_name'>First Name
+        </label>
+    </div>
+</div>
+{% endfor %}
+</form>
+<button class='btn waves-effect waves-light' type='submit' name='action'>Submit<i class='material-icons right'>send</i></button>
+
+
+
