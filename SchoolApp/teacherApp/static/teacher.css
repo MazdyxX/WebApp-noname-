@@ -1,0 +1,120 @@
+
+  html {
+    font-family: GillSans, Calibri, Trebuchet, sans-serif;
+  }
+* {
+    box-sizing: border-box;
+    border-color:white !important;
+   
+}
+
+.container{
+    width:100% !important;
+    margin-top:0% !important;
+    border-width: 0px 1px 0px 1px !important;
+    border-color: black;
+    border-style: solid;
+    background-color:rgb(243, 243, 243) !important;
+    
+}
+.rowborder{
+    border:0px black solid;
+}
+.center{
+    margin:0%;
+    margin-left:25% !important;
+}
+.col{
+    border:1px black solid;
+}
+.longcol
+{
+    height:100%;
+}
+
+.firstlist{
+    margin-top:5% !important;
+    border-width: 1px 1px 1px 1px;
+    border-color: black;
+    border-style: solid;
+}
+.listauczncol{
+    margin-top:0% !important;
+    border-width: 1px 1px 1px 1px !important;
+    border-color: black;
+    border-style: solid;
+}
+#dodajoddzialbtn{
+   
+    margin-top:3% !important;
+    margin-left:15% !important;
+    
+}
+#dodajucznia{
+    margin:1% !important;
+    
+   
+    
+}
+.mright{
+    margin-top:-1% !important;
+    margin-right:1% !important;
+}
+.colorow1{
+    background-color:#0288d1;
+}
+.colorow2{
+    background-color:#b3e5fc;
+}
+.fontuczniowie{
+    font-size:300%;
+    text-align:center;
+    margin-top:1%;
+
+}
+.fontoddzialy{
+    font-size:300%;
+    text-align:center;
+    margin-top:0%;
+    padding-top:6%;
+    
+
+}
+.rowoddzialy{
+    height:9%;
+    border-width:0px 1px 0px 1px;
+    border-style:solid;
+    border-color:black;
+    
+    
+}
+.row{
+    margin:0px !important;
+}
+.uczniowiepadding{
+    padding-top:1%;
+    padding-bottom:1%;
+}
+.nowyoddzial{
+    
+height:9%;
+border-width:0px 1px 1px 1px;
+border-style:solid;
+border-color:black;
+}
+.listauczniowbtnborder{
+    margin-top:0% !important;
+    border-width: 1px 1px 1px 1px !important;
+    border-color: black;
+    border-style: solid;
+    width:21% !important;
+    height:9%;
+}
+.uczniowieborderleftright{
+    border-width: 0px 1px 0px 1px !important;
+    border-color: black;
+    border-style: solid;
+}
+form{
+    height:22%;
+}

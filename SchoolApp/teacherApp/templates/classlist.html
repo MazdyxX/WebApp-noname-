@@ -1,0 +1,10 @@
+                 {%if not content['students_ofclass']%}
+                        <div id="dodajuczniarow" class="row ">
+                            <a id="dodajucznia" class="waves-effect waves-light btn left z-depth-4"><i class="material-icons left">contacts</i>Dodaj uczniów</a>
+                    </div>
+                  {%endif%}
+                  {% for student in content['students_ofclass'] %}
+                  <div class="row firstlist colorow2 z-depth-4">
+                      <div>{{student}}</div>
+                  </div>
+                  {%endfor%}

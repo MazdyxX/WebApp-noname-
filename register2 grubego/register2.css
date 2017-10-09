@@ -1,0 +1,107 @@
+
+  html {
+    font-family: GillSans, Calibri, Trebuchet, sans-serif;
+  }
+* {
+    box-sizing: border-box;
+}
+.container{
+    
+background-color:rgb(0, 0, 226);
+
+border-style: solid;
+border-width: 1px 2px 1px 2px;;
+border-color: black;
+
+margin-top:1% !important;
+
+
+
+
+}
+.hi{
+    
+   height:15%;
+   font-size:300%;
+   line-height:300%;
+  
+   
+}
+form{
+    background-color:white;
+    
+}
+
+.row{
+    width:98%;
+   
+   
+    
+    
+   
+}
+.dane{
+    margin-top:5% !important;
+    margin-left:5% !important;
+}
+#password{
+    margin-left:1%;
+    margin-top:5%;
+    
+    
+}
+#email{
+    margin-left:1%;
+    margin-top:5%;
+}
+label{
+    margin-left:1%;
+}
+.elabel{
+    margin-left:7%;
+}
+.hicon{
+margin-top:-5%;
+}
+.margin{
+    margin-left:2% !important;
+   height:15% !important;
+    margin-top:7%;
+    color:white;
+    text-shadow: 3px 3px black;
+    
+}
+.margin2{
+    margin-left:1%;
+    margin-bottom:-5%;
+    
+    
+}
+.butcol{
+    background-color:rgb(0, 0, 241) !important;
+    margin-bottom:2%;
+    border:1px black solid !important;
+    margin-right:-1% !important;
+    text-shadow: 1px 1px black;
+}
+.txtshadow{
+    text-shadow: 2px 2px black;
+}
+form{
+    
+    border-style: solid;
+    border-width: 2px 1px 2px 1px;;
+    border-color: black;
+
+}
+p{
+    font-size:150% !important;
+    margin-top:2% !important;
+}
+.material-icons{
+    margin-left:1%;
+}
+.aicon{
+    margin-top:-3%;
+    margin-left:4% !important;
+}
