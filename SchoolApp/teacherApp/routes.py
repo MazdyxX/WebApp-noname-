@@ -1,11 +1,11 @@
 from flask import Blueprint, render_template, request
 
-
 teacherpage = Blueprint('teacherpage', __name__, template_folder='templates', static_folder='static')
 
 #TESTSTUFF!!DELETE#
 students = ['Tomek Marek','Adam Stańczuk','Piotr Karolak']
 classes = ['2F', '3B', '4C', '4A', '5M']
+
 @teacherpage.route('/')
 def index():
     content = {
@@ -21,15 +21,7 @@ def class_list(class_id):
         'class_id': class_id,
     }
     return render_template('classlist.html', content = content)
-)
-@teacherpage.route('/edit/<class_id>', methods=['POST','GET'])
-def classForm(class_id):
-    content = {
-        'classes': classes,
-        'students_ofclass': students,
-        'class_id': class_id,
-    }
-    return render_template('classform.html', content = content
+
 
 
 

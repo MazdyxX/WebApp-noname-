@@ -1,0 +1,133 @@
+html {
+    font-family: GillSans, Calibri, Trebuchet, sans-serif;
+  }
+.container{
+    width:100% !important;
+    margin-top:0% !important;
+    border-width: 0px 1px 0px 1px !important;
+    border-color: black;
+    border-style: solid;
+    background-color:rgb(243, 243, 243) !important;  
+}
+#addclassbtn{
+    margin-top:3% !important;
+    margin-left:5%;
+    margin-right:5%;  
+}
+#addteacherbtn{
+    margin-top:1% !important;
+    margin-left:18%;  
+ }
+#removestudentbtn{
+    margin:1% !important;
+}
+.mright{
+    margin-top:-1% !important;
+    margin-right:1% !important;
+}
+.colorow1{
+    background-color:#0288d1;
+}
+.colorow2{
+    background-color:#b3e5fc;
+}
+.fontuczniowie{
+    font-size:300%;
+    text-align:center;
+    color:white;
+    margin-left:-25%;
+    padding-top:2%;
+    padding-bottom:2%;
+}
+.fontclass{
+    font-size:300%;
+    text-align:center;
+    margin-top:0%;
+    padding-top:6%;
+    color:white;
+    margin-left:-6%;
+}
+.fontteacher{
+    font-size:300%;
+    text-align:center;
+    margin-top:0%;
+    padding-top:6%;
+    color:white;
+    margin-left:-10%;
+}
+.row{
+    margin:0px !important;
+}
+.uczniowiepadding{
+    padding-top:1%;
+    padding-bottom:1%;
+}
+.klasypadding{
+    padding-top:5%;
+    padding-bottom:8%;
+}
+.naupadding{
+    padding-top:0%;
+    padding-bottom:3%;
+}
+.dodajklaserow{
+    height:10%;
+}
+.dodajnaurow{
+    height:10%;
+}
+.dodajuczniarow
+{
+    height:10%;
+}
+.kick
+{
+    height:1%;
+}
+.colscroll{
+    float: left;
+    width: 70%;
+    height: 100%;
+    overflow: auto;
+    box-sizing: border-box;
+    padding: 0.5em;
+}
+#class{
+    margin-left:65% !important;
+    text-align:center;
+}
+#teacher{
+    margin-left:0% !important;
+    width:200%;
+}
+#classtoteacher
+{
+    margin-left:0% !important;
+    width:20%;
+    text-align:center;
+}
+.teacherbutton{
+    margin-top:0.25% !important;
+    margin-bottom:0.25% !important;
+    width:100%;
+}
+.classbutton{
+    margin-top:0.25% !important;
+    margin-bottom:0.25% !important;
+    width:100%;
+}
+.student{
+    width:50%;
+    margin-top:0.25% !important;
+    margin-bottom:0.25% !important;
+}
+.uczenform{
+    background-color:#b3e5fc !important;
+}
+
+    
+
+
+    
+
+

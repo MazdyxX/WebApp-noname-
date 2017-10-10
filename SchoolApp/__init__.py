@@ -9,7 +9,7 @@ from SchoolApp.adminpanel.routes import adminpanel
 
 app.register_blueprint(page)
 app.register_blueprint(teacherpage, url_prefix="/teacher")
-app.register_blueprint(adminpanel, url_prefix='/admin')
+app.register_blueprint(adminpanel, url_prefix="/admin")
 
 
 

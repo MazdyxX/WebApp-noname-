@@ -6,9 +6,9 @@ adminpanel = Blueprint('adminpanel', __name__, template_folder='templates', stat
 @adminpanel.route('/')
 def index():
     content = {
-      #  'classes': classes,
-       # 'students': students,
-        #'teachers': teachers,
+      #'classes': classes,
+      #'students': students,
+      #'teachers': teachers,
     }
     return render_template('adminpanel.html', content=content)
 
@@ -18,7 +18,7 @@ def index():
 @adminpanel.route('/<class_id>')
 def classlist(class_id):
     content = {
-      # 'class': class_id
+        #'class': class_id
        # 'assinged_students': assinged_students,
     }
     return render_template('studentlist.html')
