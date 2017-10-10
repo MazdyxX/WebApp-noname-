@@ -21,7 +21,7 @@ def class_list(class_id):
         'class_id': class_id,
     }
     return render_template('classlist.html', content = content)
-
+)
 @teacherpage.route('/edit/<class_id>', methods=['POST','GET'])
 def classForm(class_id):
     content = {
@@ -29,7 +29,7 @@ def classForm(class_id):
         'students_ofclass': students,
         'class_id': class_id,
     }
-    return render_template('classform.html', content = content)
+    return render_template('classform.html', content = content
 
 
 
