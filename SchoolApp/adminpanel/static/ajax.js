@@ -14,7 +14,7 @@ function addclass(){  //adds class
     get('classeslist', '#classeslist' )
 }
 function delclass(teacher_id){ // del class
-    post(te acher_id, '/delete')
+    post(teacher_id, '/delete')
 }
 
 ////////////////////////////////////////////////////////
