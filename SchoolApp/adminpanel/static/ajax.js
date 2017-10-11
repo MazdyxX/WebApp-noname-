@@ -3,19 +3,33 @@ $(document).ready(function(){
     get('teacherlist', '#teacherlist' ) // loads list of teachers
     //$("#addclassbtn").click(add());
 });
-function showclass(){
-get('studentform','#editcontainer');
+
+////////////////////////////////////////////////////////
+
+function showclass(class_id){//shows class members
+    get('studentform','#editcontainer');
 }
-function addclass(){
-post(
-$('#txt_name').val()
-;)
-get('classeslist', '#classeslist' )
+function addclass(){  //adds class
+    post($('#new_class').val(), '/add')
+    get('classeslist', '#classeslist' )
 }
-function delclass(){
+function delclass(class_id){ // del class
+    post(class_id, '/delete')
+}
+
+////////////////////////////////////////////////////////
+
+function show_assingedclasses(){ // shows classes assinged to teacher
 
 }
-
+function addteacher(){                // adds teacher
+    post($('#new_teacher').val(), '/add')
+    get('teacherlist', '#teacherlist' )
+}
+function delteacher(teacher_name){        // deletes teacher
+    post(teacher_name, '/delete')
+    get('teacherlist', '#teacherlist' )
+}
 
     function get(item, place){
             $.ajax({
@@ -25,9 +39,9 @@ function delclass(){
                 $(place).html(response);
             });
      }
-     function post(data){
+     function post(data,command){
             $.ajax({
-                url: "/admin/classeslist",
+                url: "/admin/classeslist" + command,
                 type: "POST",
                 data: JSON.stringify(data),
                 contentType: "application/json",
