@@ -26,7 +26,7 @@ def classlist(command = None):
         print("deleted" + request.get_json(silent=True))
         #apicont.deleteclass(request.get_json(silent=True))
     content = {
-        'classes': apicont.getclasses('2s'),
+        'classes': apicont.getclasses(apicont, 2),
     }
     return render_template('lists/classes.html', content=content)
 
@@ -43,7 +43,7 @@ def teacherlist(command = None):
         print("deleted" + request.get_json(silent=True))
         #apicont.deleteclass(request.get_json(silent=True))
     content = {
-        'teachers' : apicont.getteachers('2s'),
+        'teachers' : apicont.getteachers(apicont, 2),
     }
     return render_template('lists/teachers.html', content=content)
 
@@ -59,7 +59,7 @@ def studentform():
 # -------------------------------------------------------------------#
 
 @adminpanel.route('/assingedclasses')
-def studentform():
+def assingedclasses():
     content = {
         'students':students
     }

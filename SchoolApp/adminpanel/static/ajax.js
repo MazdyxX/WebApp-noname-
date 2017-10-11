@@ -13,8 +13,8 @@ function addclass(){  //adds class
     post($('#new_class').val(), '/add')
     get('classeslist', '#classeslist' )
 }
-function delclass(class_id){ // del class
-    post(class_id, '/delete')
+function delclass(teacher_id){ // del class
+    post(te acher_id, '/delete')
 }
 
 ////////////////////////////////////////////////////////

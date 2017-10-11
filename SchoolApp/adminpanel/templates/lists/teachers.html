@@ -1,5 +1,5 @@
 {%for teacher in content['teachers']%}
-<a onclick="show_assingedclasses()" class="waves-effect waves-light btn teacherbutton z-depth-1">{{teacher}}</a>
+<a onclick="show_assingedclasses('{{class}}')" class="waves-effect waves-light btn teacherbutton z-depth-1">{{teacher}}</a>
 <a onclick="delteacher('{{class}}')" id="removeteacherbtn" class="waves-effect waves-light btn kick z-depth-4"><i class="material-icons kickleft">do_not_disturb_alt</i></a>
 {%endfor%}
  <!--Dodaj nauczyciela-->
