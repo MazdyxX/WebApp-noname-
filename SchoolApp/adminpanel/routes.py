@@ -2,37 +2,47 @@ from flask import Blueprint, render_template, request
 
 adminpanel = Blueprint('adminpanel', __name__, template_folder='templates', static_folder='static')
 
-
+teachers = ['Tomek Marek','Adam Stańczuk','Piotr Karolak']
+students = ['Tomek Marek','Adam Stańczuk','Piotr Karolak','Piotr Karolak','Piotr Karol']
+classes = ['2F', '3B', '4C', '4A', '5M']
 @adminpanel.route('/')
 def index():
     content = {
-      #'classes': classes,
-      #'students': students,
-      #'teachers': teachers,
     }
     return render_template('adminpanel.html', content=content)
 
 
 # -------------------------------------------------------------------#
 
-@adminpanel.route('/<class_id>')
-def classlist(class_id):
+@adminpanel.route('/classeslist', methods=['POST','GET'])
+def classlist():
+    if request.method == 'POST':
+        data = request.get_json(silent=True)
+        classes.append(data)
     content = {
-        #'class': class_id
-       # 'assinged_students': assinged_students,
+        'classes': classes,
     }
-    return render_template('studentlist.html')
+    return render_template('lists/classes.html', content=content)
 
 
 # -------------------------------------------------------------------#
 
-@adminpanel.route('/<teacher_id>')
-def teacherlist(teacher_id):
+@adminpanel.route('/teacherlist')
+def teacherlist():
     content = {
-        #'teacher': teacher_id,
-        #'assinged_classes': assinged_classes,
-
+        'teachers' : teachers
     }
-    return render_template('assingedclasses_list')
+    return render_template('lists/teachers.html', content=content)
+
+# -------------------------------------------------------------------#@
+
+@adminpanel.route('/studentform')
+def studentform():
+    content = {
+        'students':students
+    }
+    return  render_template('lists/studentform.html', content = content)
+
+# -------------------------------------------------------------------#
 
 

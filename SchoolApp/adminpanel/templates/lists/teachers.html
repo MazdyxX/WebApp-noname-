@@ -1,5 +1,9 @@
-<a class="waves-effect waves-light btn teacherbutton z-depth-1">Placeholder</a>
- <!--Dodaj nauczyciela-->                        <div class="row white">
+{%for teacher in content['teachers']%}
+<a class="waves-effect waves-light btn teacherbutton z-depth-1">{{teacher}}</a>
+<a id="removestudentbtn" class="waves-effect waves-light btn kick z-depth-4"><i class="material-icons kickleft">do_not_disturb_alt</i></a>
+{%endfor%}
+ <!--Dodaj nauczyciela-->
+                        <div class="row white">
                             <form class="col s12">
                               <div class="row">
                                 <div class="input-field col s6">
@@ -10,5 +14,6 @@
                             </form>
                         </div>
                       <div class="row ">
- <!--Przycisk dodaj nauczyciela-->                          <a id="addteacherbtn" class="waves-effect waves-light btn z-depth-4"><i class="material-icons">contacts</i>Dodaj nauczyciela</a>
-                        </div>
+ <!--Przycisk dodaj nauczyciela-->
+                          <a id="addteacherbtn" class="waves-effect waves-light btn z-depth-4"><i class="material-icons">contacts</i>Dodaj nauczyciela</a>
+                      </div>

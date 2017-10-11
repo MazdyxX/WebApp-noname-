@@ -1,14 +1,22 @@
-
- <!--Dodaj klasę-->                         <div class="row white">
+{%for class in content['classes']%}
+        <a onclick="showclass()" id="{{class}}"  class="waves-effect waves-light btn z-depth-4"><i class="material-icons">supervisor_account</i>{{class}}</a>
+        <a onclick="delclass()" id="del_{{class}}" class="waves-effect waves-light btn kick z-depth-4"><i class="material-icons kickleft">do_not_disturb_alt</i></a>
+{%endfor%}
+ <!--Dodaj klasę-->
+                    <div class="row white">
                             <form class="col s12">
                               <div class="row">
                                 <div class="input-field col s6">
-                                    <input id="class" type="text" class="validate">
-                                    <label for="class"></label>
+                                    <input id="new_class" type="text" class="validate">
+                                    <label for="new_class"></label>
                                 </div>
                             </div>
                             </form>
                         </div>
                       <div class="row ">
- <!--Przycisk dodania klasy-->                          <a id="addclassbtn" class="waves-effect waves-light btn z-depth-4"><i class="material-icons">supervisor_account</i>Dodaj oddział</a>
+ <!--Przycisk dodania klasy-->
+                          <a onclick="addclass()" id="addclassbtn" class="waves-effect waves-light btn z-depth-4"><i class="material-icons">supervisor_account</i>Dodaj oddział</a>
                         </div>
+
+
+

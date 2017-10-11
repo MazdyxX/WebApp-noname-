@@ -13,25 +13,33 @@
                     <div class="row colorow1 klasypadding z-depth-4">
                       <div class="fontclass ">Klasy</div>
                       </div>
-                            <!--CLASSES-->
+                        <div  id="classeslist" >
+
+                        </div>
                     </div>
                   <div class="col s4 colscroll">
                     <div class="row colorow1 naupadding z-depth-4">
                       <div class="fontteacher ">Nauczyciele</div>
                       </div>
-                        <!--TEACHERS-->
+                        <div  id="teacherlist" >
+
+                        </div>
                   </div>
                   <div class="col s6 klasynaupadding colscroll">
                       <div class="row colorow1 uczniowiepadding z-depth-4">
                       <div class="fontuczniowie">Placeholder
                       </div></div>
-                        <!--stuff-->
+                      <div id="editcontainer">
+
+                      </div>
                     </div>
                   </div>
                   </div>
                 </div>
         </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+        <script type="text/javascript" src="{{ url_for('adminpanel.static', filename='ajax.js') }}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     </body>
