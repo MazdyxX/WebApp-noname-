@@ -1,9 +1,8 @@
 $(document).ready(function(){
     get('classeslist', '#classeslist' )// loads list of class
     get('teacherlist', '#teacherlist' ) // loads list of teachers
-    //$("#addclassbtn").click(add());
 });
-var cashe
+    //$("#addclassbtn").click(add());
 ////////////////////////////////////////////////////////
 
 function showclass(class_id){//shows class members
@@ -16,6 +15,16 @@ function addclass(){  //adds class
 }
 function delclass(teacher_id){ // del class
     post(teacher_id, '/delete')
+}
+       function loadformdata(){
+            var data = [];
+                 dt = $('').val()
+              data.push(dt);
+         console.log(data[0]);
+        return data
+}
+function test(){
+console.log("test")
 }
 
 ////////////////////////////////////////////////////////
@@ -37,7 +46,7 @@ function delteacher(teacher_name){        // deletes teacher
 
 function uploadform()
 {
-     post('studentform/save',); //add json post
+     get('studentsform/save', '#editcontainer'); //add json post
 }
 
 function addcell()

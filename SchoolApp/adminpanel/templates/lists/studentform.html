@@ -1,12 +1,13 @@
+<script type="text/javascript" src="{{ url_for('adminpanel.static', filename='ajax.js') }}"></script>
 {%for student in content['students']%}
                         <div id="cell_{{student}}" class="row colorow2 z-depth-4">
                           <div>
                                 <div class="row ">
-                                        <form class="col uczenform s12">
+                                        <form  class="col uczenform s12">
                                           <div class="row">
  <!--Uczeń-->                                              <div class="input-field col s6">
-                                                <input value="{{student}}" id="student" type="text" class="validate">
-                                                <label for="student"></label>
+                                                <input value="{{student}}" id="{{student}}_id" type="text" class="validate">
+                                                <label for="{{student}}_id"></label>
                                             </div>
   <!--Usuń ucznia-->                        <a onclick="removecell('{{student}}')" id="removestudentbtn" class="waves-effect waves-light btn kick z-depth-4">
                                               <i class="material-icons kickleft">do_not_disturb_alt</i></a>

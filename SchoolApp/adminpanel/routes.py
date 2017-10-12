@@ -61,7 +61,7 @@ def studentform(command = None, element =None):
     content = {
         'students': apicont.students_list
     }
-    return  render_template('lists/studentform.html', content = content)
+    return  render_template('lists/studentform.html', content = content, it = (x for x in range(10, 20)))
 
 # -------------------------------------------------------------------#
 

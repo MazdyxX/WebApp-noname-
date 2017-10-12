@@ -1,16 +1,20 @@
 import requests, json
 
-headers = {'Content-Type': 'application/json'}
-def get_account_info():
+header = {'Content-Type': 'application/json'}
+data = json.dumps({'key_code': 'NGZY65Ekv6',
+                    'key_pass': 'bk6nS'})
+print (data)
+#[{'teacher_name': 'Marcin Michno', 'key_code': 'M58VlQXXaK', 'key_pass': 'L8WF5'}, {'teacher_name': 'Arek Słowik', 'key_code': 'MdbaKSNK1e', 'key_pass': 'QlsU9'}]
+api_url = 'http://unityddl.azurewebsites.net/login/admin'
 
-    api_url = 'http://unityddl.azurewebsites.net//school/generate/SPTEST/["Tomek Marek", "Adam Staczuk", "Piotr Karolak"]'
+r = requests.post(api_url,data)
+print (json.loads(r.content))
 
-    response = requests.get(api_url, headers=headers)
 
-    print(response)
 
-get_account_info()
 
-#[{"teacher_name":"Tomek Marek","key_code":"MxA49CxyJu","key_pass":"A1eBB"},
-# {"teacher_name":"Adam Staczuk","key_code":"mnumWrqSDZ","key_pass":"H3zCP"},{"teacher_name":"Piotr Karolak","key_code":"gQDkWAYtVw","key_pass":"eN3SO"}]
-#testmichnoV10
+
+
+
+#{'key_code':'lnbgSy02ge','key_pass':'ehQzC'}#School
+#{"school_key":"NGZY65Ekv6","school_pass":"bk6nS"}
