@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, request, session
 from . import api
 
 adminpanel = Blueprint('adminpanel', __name__, template_folder='templates', static_folder='static')
-apicont = api.apiController([])
+apicont = api.apiController([],[])
 
 
 @adminpanel.route('/')
@@ -57,7 +57,7 @@ def studentform(command = None, element =None):
     if command =='delete':
         apicont.deletefromformlist(element)
     if command =='save':
-        apicont.postformlist()
+        apicont.postformlist()#add json get
     content = {
         'students': apicont.students_list
     }
@@ -66,13 +66,24 @@ def studentform(command = None, element =None):
 # -------------------------------------------------------------------#
 
 @adminpanel.route('/assingedclasses/<command>')
+@adminpanel.route('/assingedclasses/<command>/<element>')
 @adminpanel.route('/assingedclasses')
-def assingedclasses():
+def assingedclasses(command = None, element = None):
+    if command == 'initialize':
+        apicont.getassigmentlist(element)
+    if command == 'add':
+        apicont.addassigmenttolist()
+    if command == 'delete':
+        apicont.deletefromassigmentlist()
+    if command == 'save':
+        apicont.postassigmentlist()      # addjsonget
     content = {
-        'students': "a"
+        'assinged_classes': apicont.assigment_list,
+        'possible_classes': apicont.getpossibleclasses()
     }
     return  render_template('lists/classes_teacher.html', content = content)
 
 # -------------------------------------------------------------------#
 
 
+    

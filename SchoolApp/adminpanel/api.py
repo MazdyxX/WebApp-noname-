@@ -1,6 +1,10 @@
 class apiController:
-    def __init__(self,studentsform):
+    def __init__(self,studentsform, assigmentform):
         self.students_list = studentsform
+        self.assigment_list = assigmentform
+    ###########################################
+    def checkform(self, editedlist):
+        return
     #CLASSES#
     ###########################################
     def addclass(self,class_id, school_id):
@@ -32,11 +36,28 @@ class apiController:
         return
     def deletefromformlist(self,element):
         self.students_list.remove(element)
-        return self.students_list
+        return
     def getformlist(self,class_id):
         self.students_list = ['Tomek Marek', 'Adam Stańczuk', 'Piotr Karolak', 'Piotr Karolak', 'Piotr Karol']
         return self.students_list
     def postformlist(self):
-        return self.students_list
+        return
+
+    #############################################
+
+    def addassigmenttolist(self):
+        self.assigment_list.append('')
+        return
+    def deletefromassigmentlist(self):
+        self.assigment_list = self.assigment_list[:-1]
+        return
+    def getassigmentlist(self,class_id):
+        self.assigment_list = ['2C', '3A', '4D']
+        return self.assigment_list
+    def postassigmentlist(self, editedlist):
+        return self.assigment_list
+    def getpossibleclasses(self):
+        classes = ['2F', '3B', '4C', '4A', '5M']
+        return classes
 
     

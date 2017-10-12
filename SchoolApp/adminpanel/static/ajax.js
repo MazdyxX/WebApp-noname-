@@ -8,6 +8,7 @@ var cashe
 
 function showclass(class_id){//shows class members
     get('studentform/initialize/'+class_id,'#editcontainer');
+    set_title("Uczniowie w klasie "+class_id)
 }
 function addclass(){  //adds class
     post($('#new_class').val(), '/add')
@@ -19,8 +20,9 @@ function delclass(teacher_id){ // del class
 
 ////////////////////////////////////////////////////////
 
-function show_assingedclasses(){ // shows classes assinged to teacher
-
+function show_assingedclasses(teacher_name){ // shows classes assinged to teacher
+    get('assingedclasses/initialize/'+teacher_name,'#editcontainer')
+    set_title("Klasy uczone przez "+teacher_name)
 }
 function addteacher(){                // adds teacher
     post($('#new_teacher').val(), '/add')
@@ -35,7 +37,7 @@ function delteacher(teacher_name){        // deletes teacher
 
 function uploadform()
 {
-     get('studentform/save',#editcontainer');
+     get('studentform/save','#editcontainer'); //add json post
 }
 function addcell()
 {
@@ -50,12 +52,15 @@ function removecell(student)//maybe in future i will boost it
 ///////////////////////////////////////////////////////////////
 
 function addclassassigment(){
-
+    get('assingedclasses/add','#editcontainer')
 }
 function removeclassassigment(){
-
+    get('assingedclasses/delete','#editcontainer')
 }
 function uploadassigmentform()
+{
+    get('assingedclasses/save','#editcontainer')
+}
 
 
 ///////////////////////////////////////////////////////////////
@@ -75,5 +80,8 @@ function uploadassigmentform()
                 data: JSON.stringify(data),
                 contentType: "application/json",
         });
+     }
+     function set_title(title){
+         $("#title").text(title)
      }
 
