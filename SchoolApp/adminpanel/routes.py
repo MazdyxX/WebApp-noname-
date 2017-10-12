@@ -1,12 +1,18 @@
-from flask import Blueprint, render_template, request, session
+from flask import Blueprint, render_template, request, session, redirect, url_for
 from . import api
 
 adminpanel = Blueprint('adminpanel', __name__, template_folder='templates', static_folder='static')
 apicont = api.apiController([],[])
 
 
+@adminpanel.route('/login')
+def login():
+    return "xd"
+
 @adminpanel.route('/')
-def index():
+def index():    
+    if session.get('logged_as') != 'admin':
+        return redirect('/admin/login', code=302)
     content = {
     }
     return render_template('adminpanel.html', content=content)
@@ -17,6 +23,8 @@ def index():
 @adminpanel.route('/classeslist/<command>', methods=['POST'])
 @adminpanel.route('/classeslist', methods=['GET'])
 def classlist(command = None):
+    if session.get('logged_as') != 'admin':
+        return redirect('/admin/login', code=302)
     if command == 'add':
         print("added" + request.get_json(silent=True))
         #apicont.addclass(request.get_json(silent=True))
@@ -34,6 +42,8 @@ def classlist(command = None):
 @adminpanel.route('/teacherlist/<command>', methods=['POST'])
 @adminpanel.route('/teacherlist', methods=['GET'])
 def teacherlist(command = None):
+    if session.get('logged_as') != 'admin':
+        return redirect('/admin/login', code=302)
     if command == 'add':
         print("added" + request.get_json(silent=True))
         #apicont.addclass(request.get_json(silent=True))
@@ -50,6 +60,8 @@ def teacherlist(command = None):
 @adminpanel.route('/studentform/<command>')
 @adminpanel.route('/studentform')
 def studentform(command = None, element =None):
+    if session.get('logged_as') != 'admin':
+        return redirect('/admin/login', code=302)
     if command == 'initialize':
         apicont.getformlist(element)
     if command =='add':
@@ -69,6 +81,8 @@ def studentform(command = None, element =None):
 @adminpanel.route('/assingedclasses/<command>/<element>')
 @adminpanel.route('/assingedclasses')
 def assingedclasses(command = None, element = None):
+    if session.get('logged_as') != 'admin':
+        return redirect('/admin/login', code=302)
     if command == 'initialize':
         apicont.getassigmentlist(element)
     if command == 'add':

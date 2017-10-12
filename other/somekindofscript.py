@@ -1,15 +1,13 @@
 import requests, json
 
-header = {'Content-Type': 'application/json'}
-data = json.dumps({'key_code': 'NGZY65Ekv6',
-                    'key_pass': 'bk6nS'})
-print (data)
-#[{'teacher_name': 'Marcin Michno', 'key_code': 'M58VlQXXaK', 'key_pass': 'L8WF5'}, {'teacher_name': 'Arek Słowik', 'key_code': 'MdbaKSNK1e', 'key_pass': 'QlsU9'}]
-api_url = 'http://unityddl.azurewebsites.net/login/admin'
+data = {'key_code':'NGZY65Ekv6','key_pass':'bk6nS'}
+headers= {''}
+#[{'teacher_name': 'Marcin print (data)Michno', 'key_code': 'M58VlQXXaK', 'key_pass': 'L8WF5'}, {'teacher_name': 'Arek Słowik', 'key_code': 'MdbaKSNK1e', 'key_pass': 'QlsU9'}]
+api_url = 'http://unityddl.azurewebsites.net/login/teacher'
 
-r = requests.post(api_url,data)
-print (json.loads(r.content))
-
+r = requests.post('http://unityddl.azurewebsites.net/login/admin', data )
+print("done")
+print(r.json())
 
 
 
