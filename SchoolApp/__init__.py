@@ -1,8 +1,8 @@
 from flask import Flask, redirect, render_template, request, session, abort
-import os, uuid
+import os, binascii
 
 app = Flask(__name__)
-app.secret_key = uuid.uuid4()
+app.secret_key = binascii.hexlify(os.urandom(24))
 
 from SchoolApp.mainpage.routes import page
 from SchoolApp.teacherApp.routes import teacherpage

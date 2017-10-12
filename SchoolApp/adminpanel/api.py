@@ -1,10 +1,25 @@
+import requests, json
 class apiController:
     def __init__(self,studentsform, assigmentform):
         self.students_list = studentsform
         self.assigment_list = assigmentform
+        self.mainurl = 'http://unityddl.azurewebsites.net'
     ###########################################
-    def checkform(self, editedlist):
+
+    def requestpost(self, url, post_data):
+        rq_url = self.mainurl + url
+        response = requests.post(rq_url, post_data)
+        return response.json()
+    def requestget(self, url, data):
+
         return
+    def login(self, code, password):
+        data = {
+            'key_code': code,
+            'key_pass': password
+        }
+        response = self.requestpost('/login/admin',data)
+        return response
     #CLASSES#
     ###########################################
     def addclass(self,class_id, school_id):

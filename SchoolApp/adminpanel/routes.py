@@ -5,14 +5,19 @@ adminpanel = Blueprint('adminpanel', __name__, template_folder='templates', stat
 apicont = api.apiController([],[])
 
 
-@adminpanel.route('/login')
+
+@adminpanel.route('/login', methods=['GET','POST'])
 def login():
-    return "xd"
+    if request.method == 'POST':
+        print(apicont.login(request.form['school_code'],request.form['school_pass']))
+        session['logged_as']='admin'
+        return redirect('/admin')
+    return render_template('loginscreen.html')
 
 @adminpanel.route('/')
 def index():    
     if session.get('logged_as') != 'admin':
-        return redirect('/admin/login', code=302)
+        return redirect('/admin/login')
     content = {
     }
     return render_template('adminpanel.html', content=content)
