@@ -2,10 +2,7 @@ from flask import Blueprint, render_template, request, session
 from . import api
 
 adminpanel = Blueprint('adminpanel', __name__, template_folder='templates', static_folder='static')
-apicont = api.apiController
-students_list = ['']
-
-
+apicont = api.apiController([])
 
 
 @adminpanel.route('/')
@@ -27,7 +24,7 @@ def classlist(command = None):
         print("deleted" + request.get_json(silent=True))
         #apicont.deleteclass(request.get_json(silent=True))
     content = {
-        'classes': apicont.getclasses(apicont, 2),
+        'classes': apicont.getclasses(2),
     }
     return render_template('lists/classes.html', content=content)
 
@@ -44,7 +41,7 @@ def teacherlist(command = None):
         print("deleted" + request.get_json(silent=True))
         #apicont.deleteclass(request.get_json(silent=True))
     content = {
-        'teachers' : apicont.getteachers(apicont, 2),
+        'teachers' : apicont.getteachers('2v')
     }
     return render_template('lists/teachers.html', content=content)
 
@@ -54,19 +51,21 @@ def teacherlist(command = None):
 @adminpanel.route('/studentform')
 def studentform(command = None, element =None):
     if command == 'initialize':
-        students_list = apicont.getformlist(apicont,'2b')
+        apicont.getformlist(element)
     if command =='add':
-        students_list.append(element)
+        apicont.addtoformlist(element)
     if command =='delete':
-        students_list.remove(element)
-    
+        apicont.deletefromformlist(element)
+    if command =='save':
+        apicont.postformlist()
     content = {
-        'students': students_list
+        'students': apicont.students_list
     }
     return  render_template('lists/studentform.html', content = content)
 
 # -------------------------------------------------------------------#
 
+@adminpanel.route('/assingedclasses/<command>')
 @adminpanel.route('/assingedclasses')
 def assingedclasses():
     content = {
