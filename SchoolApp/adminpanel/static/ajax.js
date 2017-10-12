@@ -37,8 +37,9 @@ function delteacher(teacher_name){        // deletes teacher
 
 function uploadform()
 {
-     get('studentform/save','#editcontainer'); //add json post
+     post('studentform/save',); //add json post
 }
+
 function addcell()
 {
     element = $('#new_student').val()
@@ -76,6 +77,14 @@ function uploadassigmentform()
      function post(data,command){
             $.ajax({
                 url: "/admin/classeslist" + command,
+                type: "POST",
+                data: JSON.stringify(data),
+                contentType: "application/json",
+        });
+     }
+     function postlist(data,command){
+            $.ajax({
+                url: "/admin/" + command,
                 type: "POST",
                 data: JSON.stringify(data),
                 contentType: "application/json",
