@@ -3,11 +3,11 @@ $(document).ready(function(){
     get('teacherlist', '#teacherlist' ) // loads list of teachers
     //$("#addclassbtn").click(add());
 });
-
+var cashe
 ////////////////////////////////////////////////////////
 
 function showclass(class_id){//shows class members
-    get('studentform','#editcontainer');
+    get('studentform/initialize','#editcontainer');
 }
 function addclass(){  //adds class
     post($('#new_class').val(), '/add')
@@ -30,6 +30,23 @@ function delteacher(teacher_name){        // deletes teacher
     post(teacher_name, '/delete')
     get('teacherlist', '#teacherlist' )
 }
+
+/////////////////////////////////////////////////////////////
+
+function uploadform()
+{
+
+}
+function addcell()
+{
+    get('studentform/add'+element,'#editcontainer');//get from form
+}
+function removecell(student)//maybe in future i will boost it
+{
+    get('studentform/delete'+student,'#editcontainer');
+}
+
+///////////////////////////////////////////////////////////////
 
     function get(item, place){
             $.ajax({

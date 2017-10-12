@@ -1,10 +1,11 @@
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template, request, session
 from . import api
 
 adminpanel = Blueprint('adminpanel', __name__, template_folder='templates', static_folder='static')
 apicont = api.apiController
+students_list = ['']
 
-students = ['Tomek Marek','Adam Stańczuk','Piotr Karolak','Piotr Karolak','Piotr Karol']
+
 
 
 @adminpanel.route('/')
@@ -48,11 +49,19 @@ def teacherlist(command = None):
     return render_template('lists/teachers.html', content=content)
 
 # -------------------------------------------------------------------#@
-
+@adminpanel.route('/studentform/<command>/<element>')
+@adminpanel.route('/studentform/<command>')
 @adminpanel.route('/studentform')
-def studentform():
+def studentform(command = None, element =None):
+    if command == 'initialize':
+        students_list = apicont.getformlist(apicont,'2b')
+    if command =='add':
+        students_list.append(element)
+    if command =='delete':
+        students_list.remove(element)
+    
     content = {
-        'students':students
+        'students': students_list
     }
     return  render_template('lists/studentform.html', content = content)
 
@@ -61,7 +70,7 @@ def studentform():
 @adminpanel.route('/assingedclasses')
 def assingedclasses():
     content = {
-        'students':students
+        'students': "a"
     }
     return  render_template('lists/classes_teacher.html', content = content)
 

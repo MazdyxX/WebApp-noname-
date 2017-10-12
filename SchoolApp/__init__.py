@@ -1,7 +1,8 @@
 from flask import Flask, redirect, render_template, request, session, abort
-import os
+import os, uuid
 
 app = Flask(__name__)
+app.secret_key = uuid.uuid4()
 
 from SchoolApp.mainpage.routes import page
 from SchoolApp.teacherApp.routes import teacherpage

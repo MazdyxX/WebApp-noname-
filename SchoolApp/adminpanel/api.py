@@ -1,5 +1,6 @@
-class apiController():
-
+class apiController:
+    def __init__(self,studentsform):
+        self.students_list = studentsform
     #CLASSES#
     ###########################################
     def addclass(self,class_id, school_id):
@@ -24,4 +25,16 @@ class apiController():
         teachers = ['Tomek Marek', 'Adam Stańczuk', 'Piotr Karolak']
         return teachers
     ############################################
+    def addtoformlist(self,element):
+        self.students_list.append(element)
+        return
+    def deletefromformlist(self,element):
+        self.students_list.remove(element)
+        return self.students_list
+    def getformlist(self,class_id):
+        students = ['Tomek Marek', 'Adam Stańczuk', 'Piotr Karolak', 'Piotr Karolak', 'Piotr Karol']
+        return students
+    def postformlist(self):
+        return self.students_list
+
     
