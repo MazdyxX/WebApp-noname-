@@ -24,6 +24,7 @@ def login():
     if request.method == 'POST':
         if check():
             return redirect('/teacher')
+
        
         
 

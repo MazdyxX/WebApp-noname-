@@ -1,11 +1,16 @@
 <!--Rozwijane menu-->   {%for assinged_class in content['assinged_classes']%}
-                        <select class="browser-default">
-                        <option value="" disabled selected>{{assinged_class}}</option>
-                            {%for possible_class in content['possible_classes']%}
-                            <option value="1">{{possible_class}}</option>
-                            {%endfor%}
-                        </select>
-                        {%endfor%}
-                        <a onclick="addclassassigment()" id="addclassassigmentbtn" class="waves-effect waves-light btn left z-depth-4"><i class="material-icons left">contacts</i>Dodaj</a>
-                        <a onclick="removeclassassigment()" id="removeassignation" class="waves-effect waves-light btn kick z-depth-4"><i class="material-icons kickleft">do_not_disturb_alt</i></a><br>
-                        <a onclick="uploadassigmentform()" id="confirmlistbtn" class="waves-effect waves-light btn left z-depth-4"><i class="material-icons left">done</i>Zatwierdź</a>
+<label id="{{assinged_class}}_id" class="validate">{{assinged_class}}</label>
+<label for="{{assinged_class}}_id"></label>
+    <a onclick="removeclassassigment('{{assinged_class}}')" id="removeassignation" class="waves-effect waves-light btn kick z-depth-4">
+    <i class="material-icons kickleft">do_not_disturb_alt</i></a><br>
+{%endfor%}
+
+    <select id="new_assign" class="browser-default">
+        <option value="" disabled selected>Wybierz klasę</option>
+        {%for possible_class in content['possible_classes']%}
+        <option value="{{possible_class}}">{{possible_class}}</option>
+        {%endfor%}
+    </select>
+<a onclick="addclassassigment()" id="addclassassigmentbtn" class="waves-effect waves-light btn left z-depth-4"><i class="material-icons left">contacts</i>Dodaj</a>
+
+<a onclick="uploadassigmentform()" id="confirmlistbtn" class="waves-effect waves-light btn left z-depth-4"><i class="material-icons left">done</i>Zatwierdź</a>

@@ -62,10 +62,11 @@ function removecell(student)//maybe in future i will boost it
 ///////////////////////////////////////////////////////////////
 
 function addclassassigment(){
-    get('assingedclasses/add','#editcontainer')
+    dt = $("#new_assign").val();
+    get('assingedclasses/add/'+dt,'#editcontainer')
 }
-function removeclassassigment(){
-    get('assingedclasses/delete','#editcontainer')
+function removeclassassigment(element){
+    get('assingedclasses/delete/'+element,'#editcontainer')
 }
 function uploadassigmentform()
 {

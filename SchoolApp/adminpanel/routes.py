@@ -9,8 +9,10 @@ apicont = api.apiController([],[])
 @adminpanel.route('/login', methods=['GET','POST'])
 def login():
     if request.method == 'POST':
-        print(apicont.login(request.form['school_code'],request.form['school_pass']))
-        session['logged_as']='admin'
+        code = apicont.login(request.form['school_code'],request.form['school_pass'])
+        if code != 'error':
+            session['school_id']= code
+            session['logged_as']='admin'
         return redirect('/admin')
     return render_template('loginscreen.html')
 
@@ -18,6 +20,7 @@ def login():
 def index():    
     if session.get('logged_as') != 'admin':
         return redirect('/admin/login')
+    print(apicont.getclasses(session.get('school_id')))
     content = {
     }
     return render_template('adminpanel.html', content=content)
@@ -31,13 +34,11 @@ def classlist(command = None):
     if session.get('logged_as') != 'admin':
         return redirect('/admin/login', code=302)
     if command == 'add':
-        print("added" + request.get_json(silent=True))
-        #apicont.addclass(request.get_json(silent=True))
+        apicont.addclass(request.get_json(silent=True),session.get('school_id'))
     if command == 'delete':
-        print("deleted" + request.get_json(silent=True))
-        #apicont.deleteclass(request.get_json(silent=True))
+        apicont.deleteclass(request.get_json(silent=True),session.get('school_id'))
     content = {
-        'classes': apicont.getclasses(2),
+        'classes': apicont.getclasses(session.get('school_id'))
     }
     return render_template('lists/classes.html', content=content)
 
@@ -56,7 +57,7 @@ def teacherlist(command = None):
         print("deleted" + request.get_json(silent=True))
         #apicont.deleteclass(request.get_json(silent=True))
     content = {
-        'teachers' : apicont.getteachers('2v')
+        'teachers' : apicont.getteachers(session.get('school_id'))
     }
     return render_template('lists/teachers.html', content=content)
 
@@ -91,9 +92,9 @@ def assingedclasses(command = None, element = None):
     if command == 'initialize':
         apicont.getassigmentlist(element)
     if command == 'add':
-        apicont.addassigmenttolist()
+        apicont.addassigmenttolist(element)
     if command == 'delete':
-        apicont.deletefromassigmentlist()
+        apicont.deletefromassigmentlist(element)
     if command == 'save':
         apicont.postassigmentlist()      # addjsonget
     content = {

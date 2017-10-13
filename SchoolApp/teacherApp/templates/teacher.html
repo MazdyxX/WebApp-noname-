@@ -24,14 +24,11 @@
                 <div class="row rowborder colorow1 rowoddzialy z-depth-4">
                   <div class="fontoddzialy ">Oddziały</div>
                   </div>
-                  <div class="row firstlist colorow2 z-depth-4">
-                      <div>Placeholder</div>
-                    </div>
 
                   {% for class in content['classes'] %}
 
                   <div id="dodajodrow" class="row ">
-                      <a onclick='classswap("{{class}}")' id="dodajoddzialbtn" class="center waves-effect waves-light btn z-depth-4"><i class="material-icons">supervisor_account</i>{{class}}</a>
+                      <a onclick='classswap("{{class}}")' id="dodajoddzialbtn" class="center waves-effect waves-light btn teal lighten-1"><i class="material-icons">supervisor_account</i>{{class}}</a>
                    </div>
 
                   {% endfor %}

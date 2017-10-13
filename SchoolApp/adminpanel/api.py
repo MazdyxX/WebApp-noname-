@@ -9,28 +9,33 @@ class apiController:
     def requestpost(self, url, post_data):
         rq_url = self.mainurl + url
         response = requests.post(rq_url, post_data)
-        return response.json()
-    def requestget(self, url, data):
-
-        return
+        return response
+    def requestget(self, url):
+        rq_url = self.mainurl + url
+        response = requests.get(rq_url)
+        return response
     def login(self, code, password):
         data = {
             'key_code': code,
             'key_pass': password
         }
         response = self.requestpost('/login/admin',data)
-        return response
+        if response.status_code == 600:
+            return 'error'
+        else:
+            return response.json()['school_id']
+
     #CLASSES#
     ###########################################
-    def addclass(self,class_id, school_id):
+    def addclass(self,class_id, school_id):#done
+        self.requestget('/class/create/'+class_id+'/'+school_id)
+        return
+    def deleteclass(self,class_id, school_id):#
 
         return
-    def deleteclass(self,class_id, school_id):
-
-        return
-    def getclasses(self, school_id):
-        classes = ['2F', '3B', '4C', '4A', '5M']
-        return classes
+    def getclasses(self, school_id):#
+        response = self.requestget('/school/classes/'+school_id)
+        return response.json()['classes']
 
     #TEACHERS#
     ############################################
@@ -41,8 +46,9 @@ class apiController:
 
         return
     def getteachers(self,school_id):
-        teachers = ['Tomek Marek', 'Adam Stańczuk', 'Piotr Karolak']
-        return teachers
+        teachers = self.requestget('/school/teachers/'+ school_id)
+        names = list((object['name'] for object in teachers.json()['teachers']))
+        return names
     #STUDENTS
     ############################################
 
@@ -60,17 +66,17 @@ class apiController:
 
     #############################################
 
-    def addassigmenttolist(self):
-        self.assigment_list.append('')
+    def addassigmenttolist(self,element):
+        self.assigment_list.append(element)
         return
-    def deletefromassigmentlist(self):
-        self.assigment_list = self.assigment_list[:-1]
+    def deletefromassigmentlist(self,element):
+        self.assigment_list.remove(element)
         return
-    def getassigmentlist(self,class_id):
+    def getassigmentlist(self,teacher_id):
         self.assigment_list = ['2C', '3A', '4D']
         return self.assigment_list
     def postassigmentlist(self, editedlist):
-        return self.assigment_list
+        return
     def getpossibleclasses(self):
         classes = ['2F', '3B', '4C', '4A', '5M']
         return classes
