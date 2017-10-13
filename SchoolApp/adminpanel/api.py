@@ -1,8 +1,9 @@
-import requests, json
+import requests, json, urllib
+
 class apiController:
     def __init__(self,studentsform, assigmentform):
         self.students_list = studentsform
-        self.assigment_list = assigmentform
+        self.to = assigmentform
         self.mainurl = 'http://unityddl.azurewebsites.net'
     ###########################################
 
@@ -25,17 +26,31 @@ class apiController:
         else:
             return response.json()['school_id']
 
+    def getteachers_assingedtoclass(self,class_id,school_id):
+        data =self.requestget('/school/teachers/'+school_id).json()
+        contain_list = '['
+        for teacher in data['teachers']:
+            if class_id in teacher['classes']:
+                contain_list= contain_list + '"'+ teacher['_id']+ '", '
+        contain_list +=']'
+        return contain_list
+
     #CLASSES#
     ###########################################
     def addclass(self,class_id, school_id):#done
         self.requestget('/class/create/'+class_id+'/'+school_id)
         return
-    def deleteclass(self,class_id, school_id):#
+    def deleteclass(self,class_id, school_id):
+        teacher_list = self.getteachers_assingedtoclass(class_id,school_id)
 
+        self.requestget('/class/remove/'+ teacher_list +'/'+ class_id +'/'+school_id)
         return
     def getclasses(self, school_id):#
         response = self.requestget('/school/classes/'+school_id)
-        return response.json()['classes']
+        school_classes = list((object['class_name'] for object in response.json()['classes']))
+        return school_classes
+    def get_teacher_id(self, techer_name):
+        return
 
     #TEACHERS#
     ############################################
@@ -48,6 +63,7 @@ class apiController:
     def getteachers(self,school_id):
         teachers = self.requestget('/school/teachers/'+ school_id)
         names = list((object['name'] for object in teachers.json()['teachers']))
+        ids = list((object['_id'] for object in teachers.json()['teachers']))
         return names
     #STUDENTS
     ############################################
@@ -67,7 +83,7 @@ class apiController:
     #############################################
 
     def addassigmenttolist(self,element):
-        self.assigment_list.append(element)
+
         return
     def deletefromassigmentlist(self,element):
         self.assigment_list.remove(element)

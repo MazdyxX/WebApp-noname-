@@ -36,7 +36,7 @@ def classlist(command = None):
     if command == 'add':
         apicont.addclass(request.get_json(silent=True),session.get('school_id'))
     if command == 'delete':
-        apicont.deleteclass(request.get_json(silent=True),session.get('school_id'))
+        apicont.deleteclass(request.get_json(silent=True),session.get('school_id'))#refreshing to fix
     content = {
         'classes': apicont.getclasses(session.get('school_id'))
     }
@@ -79,7 +79,7 @@ def studentform(command = None, element =None):
     content = {
         'students': apicont.students_list
     }
-    return  render_template('lists/studentform.html', content = content, it = (x for x in range(10, 20)))
+    return  render_template('lists/studentform.html', content = content)
 
 # -------------------------------------------------------------------#
 
