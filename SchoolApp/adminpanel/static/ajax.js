@@ -46,7 +46,7 @@ function delteacher(teacher_name){        // deletes teacher
 
 function uploadform()
 {
-     get('studentsform/save', '#editcontainer'); //add json post
+     get('studentform/save', '#editcontainer'); //add json post
 }
 
 function addcell()

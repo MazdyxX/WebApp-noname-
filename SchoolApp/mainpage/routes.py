@@ -15,8 +15,8 @@ def index():
     if request.method == 'GET':
         return render_template('mainpage/index.html', **content)
 
-@page.route('/login', methods=['GET','POST']) #login page
-def login():
+@page.route('/loginstudent', methods=['GET','POST']) #login page
+def loginstudent():
     if request.method == 'GET':
         content = {
         }
@@ -24,6 +24,18 @@ def login():
     if request.method == 'POST':
         if check():
             return redirect('/teacher')
+
+
+@page.route('/loginteacher', methods=['GET','POST']) #login page
+def loginteacher():
+    if request.method == 'GET':
+        content = {
+        }
+        return render_template('loginpage/loginscreen.html', **content)
+    if request.method == 'POST':
+        if check():
+            return redirect('/student')
+
 
        
         

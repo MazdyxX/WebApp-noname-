@@ -3,7 +3,8 @@ import requests, json, urllib
 class apiController:
     def __init__(self,studentsform, assigmentform):
         self.students_list = studentsform
-        self.to = assigmentform
+        self.current_class_id = ''
+        self.current_teacher_name=''
         self.mainurl = 'http://unityddl.azurewebsites.net'
     ###########################################
 
@@ -74,25 +75,33 @@ class apiController:
     def deletefromformlist(self,element):
         self.students_list.remove(element)
         return
-    def getformlist(self,class_id):
-        self.students_list = ['Tomek Marek', 'Adam Stańczuk', 'Piotr Karolak', 'Piotr Karolak', 'Piotr Karol']
+    def getformlist(self,class_id, school_id):
+        data = self.requestget('/class/get/'+class_id+'/'+school_id).json()
+        self.current_class_id = class_id
+        self.students_list = data['students']
         return self.students_list
-    def postformlist(self):
-        return
+    def postformlist(self,school_id):
+        data = {
+            'class_name': self.current_class_id,
+            'key_code': school_id,
+            'students': self.students_list
+        }
+        self.requestpost('/class/changeStudents',data)
+        return data
 
     #############################################
 
     def addassigmenttolist(self,element):
-
+        #self.requestget('/class/show/:teacherId')
         return
     def deletefromassigmentlist(self,element):
-        self.assigment_list.remove(element)
+
         return
     def getassigmentlist(self,teacher_id):
-        self.assigment_list = ['2C', '3A', '4D']
-        return self.assigment_list
-    def postassigmentlist(self, editedlist):
-        return
+        #data = self.requestget('/class/show/'+ teacher_id).json()
+        self.current_teacher_name = teacher_id
+        assigmentlist = data['classes']
+        return assigmentlist
     def getpossibleclasses(self):
         classes = ['2F', '3B', '4C', '4A', '5M']
         return classes

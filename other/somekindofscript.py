@@ -13,7 +13,5 @@ print(names)
 
 
 
-
-
 #{'key_code':'lnbgSy02ge','key_pass':'ehQzC'}#School
 #{"school_key":"NGZY65Ekv6","school_pass":"bk6nS"}

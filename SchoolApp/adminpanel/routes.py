@@ -20,7 +20,6 @@ def login():
 def index():    
     if session.get('logged_as') != 'admin':
         return redirect('/admin/login')
-    print(apicont.getclasses(session.get('school_id')))
     content = {
     }
     return render_template('adminpanel.html', content=content)
@@ -69,13 +68,14 @@ def studentform(command = None, element =None):
     if session.get('logged_as') != 'admin':
         return redirect('/admin/login', code=302)
     if command == 'initialize':
-        apicont.getformlist(element)
-    if command =='add':
+        apicont.getformlist(element,session.get('school_id'))
+    elif command =='save':
+        test = apicont.postformlist(session.get('school_id'))
+    elif command =='add':
         apicont.addtoformlist(element)
-    if command =='delete':
+    elif command =='delete':
         apicont.deletefromformlist(element)
-    if command =='save':
-        apicont.postformlist()#add json get
+
     content = {
         'students': apicont.students_list
     }
@@ -89,16 +89,13 @@ def studentform(command = None, element =None):
 def assingedclasses(command = None, element = None):
     if session.get('logged_as') != 'admin':
         return redirect('/admin/login', code=302)
-    if command == 'initialize':
-        apicont.getassigmentlist(element)
+    print(element)
     if command == 'add':
         apicont.addassigmenttolist(element)
     if command == 'delete':
         apicont.deletefromassigmentlist(element)
-    if command == 'save':
-        apicont.postassigmentlist()      # addjsonget
     content = {
-        'assinged_classes': apicont.assigment_list,
+        'assinged_classes': apicont.getassigmentlist(element),
         'possible_classes': apicont.getpossibleclasses()
     }
     return  render_template('lists/classes_teacher.html', content = content)
