@@ -30,7 +30,7 @@ console.log("test")
 ////////////////////////////////////////////////////////
 
 function show_assingedclasses(teacher_name){ // shows classes assinged to teacher
-    get('assingedclasses/initialize/'+teacher_name,'#editcontainer')
+    get('assingedclasses/'+teacher_name,'#editcontainer')
     set_title("Klasy uczone przez "+teacher_name)
 }
 function addteacher(){                // adds teacher
@@ -67,10 +67,6 @@ function addclassassigment(){
 }
 function removeclassassigment(element){
     get('assingedclasses/delete/'+element,'#editcontainer')
-}
-function uploadassigmentform()
-{
-    get('assingedclasses/save','#editcontainer')
 }
 
 

@@ -44,19 +44,19 @@ def classlist(command = None):
 
 # -------------------------------------------------------------------#
 
-@adminpanel.route('/teacherlist/<command>', methods=['POST'])
+@adminpanel.route('/teacherlist/<command>/<element>', methods=['POST'])
 @adminpanel.route('/teacherlist', methods=['GET'])
-def teacherlist(command = None):
+def teacherlist(command = None, element= None):
     if session.get('logged_as') != 'admin':
         return redirect('/admin/login', code=302)
     if command == 'add':
         print("added" + request.get_json(silent=True))
-        #apicont.addclass(request.get_json(silent=True))
-    if command == 'delete':
+        apicont.addteacher(element,session.get('school_id'))
         print("deleted" + request.get_json(silent=True))
-        #apicont.deleteclass(request.get_json(silent=True))
+        apicont.deleteteacher(element,session.get('school_id'))
     content = {
-        'teachers' : apicont.getteachers(session.get('school_id'))
+        'teachers' : apicont.getteachers(session.get('school_id')),
+        'unregistered_teachers': apicont.getunregistered_teachers(session.get('school_id'))
     }
     return render_template('lists/teachers.html', content=content)
 
@@ -83,7 +83,7 @@ def studentform(command = None, element =None):
 
 # -------------------------------------------------------------------#
 
-@adminpanel.route('/assingedclasses/<command>')
+@adminpanel.route('/assingedclasses/<element>')
 @adminpanel.route('/assingedclasses/<command>/<element>')
 @adminpanel.route('/assingedclasses')
 def assingedclasses(command = None, element = None):
@@ -95,8 +95,8 @@ def assingedclasses(command = None, element = None):
     if command == 'delete':
         apicont.deletefromassigmentlist(element)
     content = {
-        'assinged_classes': apicont.getassigmentlist(element),
-        'possible_classes': apicont.getpossibleclasses()
+        'assinged_classes': apicont.getassigmentlist(element,session.get('school_id')),
+        'possible_classes': apicont.getpossibleclasses(session.get('school_id'))
     }
     return  render_template('lists/classes_teacher.html', content = content)
 
