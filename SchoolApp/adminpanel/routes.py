@@ -44,15 +44,15 @@ def classlist(command = None):
 
 # -------------------------------------------------------------------#
 
-@adminpanel.route('/teacherlist/<command>/<element>', methods=['POST'])
+@adminpanel.route('/teacherlist/<command>/<element>')
 @adminpanel.route('/teacherlist', methods=['GET'])
 def teacherlist(command = None, element= None):
     if session.get('logged_as') != 'admin':
         return redirect('/admin/login', code=302)
+    print(element)
     if command == 'add':
-        print("added" + request.get_json(silent=True))
         apicont.addteacher(element,session.get('school_id'))
-        print("deleted" + request.get_json(silent=True))
+    if command == 'delete':   
         apicont.deleteteacher(element,session.get('school_id'))
     content = {
         'teachers' : apicont.getteachers(session.get('school_id')),
@@ -83,17 +83,20 @@ def studentform(command = None, element =None):
 
 # -------------------------------------------------------------------#
 
-@adminpanel.route('/assingedclasses/<element>')
+
 @adminpanel.route('/assingedclasses/<command>/<element>')
+@adminpanel.route('/assingedclasses/<element>')
 @adminpanel.route('/assingedclasses')
 def assingedclasses(command = None, element = None):
     if session.get('logged_as') != 'admin':
         return redirect('/admin/login', code=302)
+    print(apicont.current_teacher_name)
     print(element)
     if command == 'add':
-        apicont.addassigmenttolist(element)
+        apicont.addassigmenttolist(element,session.get('school_id'))
     if command == 'delete':
-        apicont.deletefromassigmentlist(element)
+        print("delete")
+        apicont.deletefromassigmentlist(element,session.get('school_id'))
     content = {
         'assinged_classes': apicont.getassigmentlist(element,session.get('school_id')),
         'possible_classes': apicont.getpossibleclasses(session.get('school_id'))

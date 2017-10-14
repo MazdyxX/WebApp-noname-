@@ -56,10 +56,10 @@ class apiController:
     #TEACHERS#
     ############################################
     def addteacher(self,teacher,school_id):
-        self.requestget('school/teacher_generate/'+school_id+'/["'+teacher+'"]')
+        self.requestget('/school/teacher_generate/'+school_id+'/["'+teacher+'"]')
         return
     def deleteteacher(self,teacher,school_id):
-
+        self.requestget ('/school/teacher/unregister/'+teacher+'/'+school_id)
         return
     def getteachers(self,school_id):
         teachers = self.requestget('/school/teachers/'+ school_id)
@@ -95,19 +95,17 @@ class apiController:
 
     #############################################
 
-    def addassigmenttolist(self,element):
-        self.requestget('/class/setTeacher/'+self.current_teacher_name+'/'+element)#addschool
+    def addassigmenttolist(self,element,school_id):
+        self.requestget('/class/setTeacher/'+self.current_teacher_name+'/'+school_id+'/'+element)#addschool
         return
-    def deletefromassigmentlist(self,element):
-        self.requestget('/class/removeTeacher/'+self.current_teacher_name+'/'+element)#addschool
+    def deletefromassigmentlist(self,element,school_id):
+        self.requestget('/class/removeTeacher/'+self.current_teacher_name+'/'+school_id+'/'+element)#addschool
         return
     def getassigmentlist(self,teacher_id,school_id):
-        data = self.requestget('/class/getAppended/'+teacher_id+'/'+school_id).json()
+        data = self.requestget('/class/show/'+teacher_id+'/'+school_id).json()
         self.current_teacher_name = teacher_id
-        assigmentlist = data
+        assigmentlist = data['classes']
         return assigmentlist
     def getpossibleclasses(self,school_id):
         classes = self.getclasses(school_id)
         return classes
-
-    

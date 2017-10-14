@@ -34,11 +34,11 @@ function show_assingedclasses(teacher_name){ // shows classes assinged to teache
     set_title("Klasy uczone przez "+teacher_name)
 }
 function addteacher(){                // adds teacher
-    post($('#new_teacher').val(), '/add')
+    get('teacherlist/add/'+$('#new_teacher').val(),'#teacherlist')
     get('teacherlist', '#teacherlist' )
 }
 function delteacher(teacher_name){        // deletes teacher
-    post(teacher_name, '/delete')
+    get('teacherlist/delete/'+teacher_name, '#teacherlist' )
     get('teacherlist', '#teacherlist' )
 }
 

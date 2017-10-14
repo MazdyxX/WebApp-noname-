@@ -4,7 +4,7 @@
 {%endfor%}
 {%for teacher_unregistered in content['unregistered_teachers']%}
 <a class="waves-effect waves-light btn teacherbutton z-depth-1">{{teacher_unregistered}}</a>
-<a onclick="delteacher('{teacher_unregistered}}')" id="removeteacherbtn" class="waves-effect waves-light btn kick z-depth-4"><i class="material-icons kickleft">do_not_disturb_alt</i></a>
+<a onclick="delteacher('{{teacher_unregistered}}')" id="removeteacherbtn" class="waves-effect waves-light btn kick z-depth-4"><i class="material-icons kickleft">do_not_disturb_alt</i></a>
 {%endfor%}
  <!--Dodaj nauczyciela-->
                         <div class="row white">
