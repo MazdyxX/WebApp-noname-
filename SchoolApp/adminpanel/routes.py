@@ -7,14 +7,19 @@ apicont = api.apiController([],[])
 
 @adminpanel.route('/login', methods=['GET','POST'])
 def login():
+    error=''
+    code=''
     if request.method == 'POST':
-        code = apicont.login(request.form['school_code'],request.form['school_pass'])
+        try:
+            code = apicont.login(request.form['school_code'],request.form['school_pass'])
+        except:
+            error = 'bład połączenia'
+            code = 'error'
         if code != 'error':
-            print("api request")
             session['school_id']= code
             session['logged_as']='admin'
             return redirect('/admin')
-    return render_template('adminloginscreen.html')
+    return render_template('adminloginscreen.html', error=error)
 
 @adminpanel.route('/')
 def index():    
