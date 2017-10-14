@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
-    <title></title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('page.static', filename='jquery.fullPage.css') }}" />
+    <title>SchCOOLer</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('page.static', filename='jquery.fullPage.css')}}" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
     <script type="text/javascript" src="{{ url_for('page.static', filename='jquery.fullPage.js') }}"></script>
@@ -18,17 +18,17 @@
             <div class="slider fullscreen">
                 <ul class="slides">
                   <li>
-                    <img class="z-depth-4 " src="https://lorempixel.com/580/250/nature/1">
+                    <img class="z-depth-4" src="{{ url_for('page.static', filename = 'mainbaner.jpg') }}">
                     <div class="caption center-align">
                       <h3>Witaj w naszej aplikacji!</h3>
-                      <a onclick="loginstudent()" id="rozpocznij" class="z-depth-4 waves-effect waves-light btn" href="#" style='margin-top:10%'>Rozpocznij swoją przygodę!</a>
+                      <a onclick="loginstudent()" id="rozpocznij" class="z-depth-4 waves-effect light-blue btn" href="#" style='margin-top:10%'>Rozpocznij swoją przygodę!</a>
                     </div>
                   </li>
                   <li>
-                    <img src="https://lorempixel.com/580/250/nature/2">
+                    <img src="{{ url_for('page.static', filename = 'mainbaner.jpg') }}">
                     <div class="caption center-align">
                       <h3>Panel Nauczyciela</h3>
-                      <button onclick="loginteacher()" class="z-depth-4 green waves-effect waves-light btn" id="for" style='margin-top:10%'>Zaloguj się</button>
+                      <button onclick="loginteacher()" class="z-depth-4 green waves-effect orange darken-2 btn" id="for" style='margin-top:10%'>Zaloguj się</button>
                     </div>
                   </li>
                 </ul>
@@ -36,12 +36,14 @@
         </div>
         <div class='section'>
             <div class='row' style='height:50%; padding:0px; margin:0px;'>
-                <div class='col s12 m6' style='height:100%'></div>
+
+                <div class='col s12 m6' style='height:100%'>benc</div>
                 <div class='col s12 m6' style='background-color:black; height:100%;'></div>
             </div>
             <div class='row' style='height:50%'>
+
                 <div class='col s12 m6' style='background-color:black; height:100%;'></div>
-                <div class='col s12 m6' style='height:100%;'></div>
+                <div class='col s12 m6' style='height:100%;'>Helo</div>
             </div>
         </div>
     </div>
