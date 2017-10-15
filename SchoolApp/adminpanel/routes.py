@@ -10,12 +10,11 @@ def login():
     error=''
     if request.method == 'POST':
         code = apicont.login(request.form['school_code'],request.form['school_pass'])
-        error = 'bład połączenia'
         if code != 'error':
             session['school_id']= code
             session['logged_as']='admin'
             return redirect('/admin')
-    return render_template('adminloginscreen.html', error=error)
+    return render_template('adminloginscreen.html')
 
 @adminpanel.route('/')
 def index():    
