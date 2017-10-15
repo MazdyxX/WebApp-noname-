@@ -25,7 +25,7 @@ class apiController:
         if response.status_code == 600:
             return 'error'
         else:
-            return response.json()['school_id']
+            return response.json()["school_id"]
 
     def getteachers_assingedtoclass(self,class_id,school_id):
         data =self.requestget('/school/teachers/'+school_id).json()
