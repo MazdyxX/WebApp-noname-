@@ -10,6 +10,8 @@ def login():
     error=''
     code=''
     if request.method == 'POST':
+        print(request.form['school_code'])
+        print(request.form['school_pass'])
         try:
             code = apicont.login(request.form['school_code'],request.form['school_pass'])
         except:

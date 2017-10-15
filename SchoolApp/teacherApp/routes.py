@@ -9,7 +9,7 @@ classes = ['2F', '3B', '4C', '4A', '5M']
 @teacherpage.route('/')
 def index():
     content = {
-        'classes': classes
+        'classeslist': classes
     }
     return render_template('teacher.html', content=content)
 @teacherpage.route('/<class_id>', methods=['POST','GET']) # need to be blocked bz writing custom method

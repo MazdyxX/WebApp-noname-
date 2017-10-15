@@ -1,7 +1,7 @@
 <html>
 <head>
 <title></title>
-<link rel="stylesheet" type="text/css" href="{{ url_for('teacherpage.static', filename='teacher.css') }}">
+<link rel="stylesheet" type="text/css" href="class2.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 </head>
@@ -14,9 +14,8 @@
             </div>
             <div class="row">
                  <div class="col classcol2 s1">
-                     {%for class in content['classeslist']%}
-                    <div class="row"> <a class="waves-effect light-blue btn classbtn">{{class}}</a> </div>
-                     {%endfor%}
+                    <div class="row"> <a class="waves-effect waves-light btn classbtn">1H</a> </div>
+                     <div class="row"> <a class="waves-effect waves-light btn classbtn">1H</a> </div>
             </div>
                  <div class="col studentscol2 s11">
                      <div class="row">
@@ -43,9 +42,6 @@
             </div>
 </div>
 </div>
-<script type="text/javascript" src="{{ url_for('teacherpage.static', filename='classswap.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 </body>
 </html>
-
-
