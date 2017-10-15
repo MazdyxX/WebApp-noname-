@@ -7,7 +7,6 @@ apicont = api.apiController([],[])
 
 @adminpanel.route('/login', methods=['GET','POST'])
 def login():
-    error=''
     if request.method == 'POST':
         code = apicont.login(request.form['school_code'],request.form['school_pass'])
         if code != 'error':
