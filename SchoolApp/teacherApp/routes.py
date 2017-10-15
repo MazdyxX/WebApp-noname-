@@ -14,7 +14,7 @@ def index():
     return render_template('teacher.html', content=content)
 @teacherpage.route('/<class_id>', methods=['POST','GET']) # need to be blocked bz writing custom method
 def class_list(class_id):
-    #here will be query for students in class#
+
     content = {
         'classes': classes,
         'students_ofclass': students,
