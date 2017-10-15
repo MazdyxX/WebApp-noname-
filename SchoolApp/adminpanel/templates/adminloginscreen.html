@@ -17,7 +17,7 @@
   </div>
 </div>
 <div class="row bottom">
-    <form >
+    <form method="POST" action="/admin/login">
   <div class="col s12 content">
     <div class="row">
       <div class="input-field col s12">
@@ -33,7 +33,7 @@
     </div>
     <a class="forgetpass" href="#">Zapomniałeś hasła?</a>
     {{error}}
-    <button formmethod="POST" formaction="/admin/login" class="btn waves-effect light-blue accent-4 right" type="submit" name="action">Zaloguj</button>
+    <button class="btn waves-effect light-blue accent-4 right" type="submit" name="action">Zaloguj</button>
   </div>
     </form>
 </div>
