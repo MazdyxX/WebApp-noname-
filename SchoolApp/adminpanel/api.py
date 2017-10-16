@@ -1,4 +1,5 @@
-import requests, json, urllib
+import requests, json, urllib, requests.utils
+from requests.utils import quote
 
 class apiController:
     def __init__(self,studentsform, assigmentform):
@@ -96,15 +97,15 @@ class apiController:
     #############################################
 
     def addassigmenttolist(self,element,school_id):
-        self.requestget('/class/setTeacher/'+self.current_teacher_name+'/'+school_id+'/'+element)#addschool
+        self.requestget('/class/setTeacher/'+self.current_teacher_name+'/'+school_id+'/'+element)
         return
     def deletefromassigmentlist(self,element,school_id):
-        self.requestget('/class/removeTeacher/'+self.current_teacher_name+'/'+school_id+'/'+element)#addschool
+        self.requestget('/class/removeTeacher/'+self.current_teacher_name+'/'+school_id+'/'+element)
         return
     def getassigmentlist(self,teacher_id,school_id):
-        data = self.requestget('/class/show/'+teacher_id+'/'+school_id).json()
-        self.current_teacher_name = teacher_id
-        assigmentlist = data['classes']
+        data = self.requestget('/class/show/'+teacher_id+'/'+school_id)
+        self.current_teacher_name = quote(teacher_id)
+        assigmentlist = data.json()['classes']
         return assigmentlist
     def getpossibleclasses(self,school_id):
         classes = self.getclasses(school_id)

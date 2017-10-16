@@ -1,17 +1,18 @@
-from flask import Blueprint, render_template, request, redirect
-
+from flask import Blueprint, render_template, request, redirect, session
+import requests ,json
 
 page = Blueprint('page', __name__, template_folder='templates', static_folder='static/mainpage')
-
-def check():
-    return True
+def check_login(login,password):
+    url = 'http://unityddl.azurewebsites.net/login/teacher'
+    post_data = {'email': login,
+            'password': password}
+    response = requests.post(url, post_data)
+    return response
 
 @page.route('/') #mainpage
-def index():
+def home():
     content = {
     }
-    if request.method == 'POST':
-        login();
     if request.method == 'GET':
         return render_template('mainpage/index.html', **content)
 
@@ -25,17 +26,5 @@ def loginstudent():
             return redirect('/student')
 
 
-@page.route('/loginteacher', methods=['GET','POST']) #login page
-def loginteacher():
-    if request.method == 'GET':
-
-        return render_template('loginpage/loginscreen.html', object = '/loginteacher')
-    if request.method == 'POST':
-        if check():
-            return redirect('/teacher')
-
-
-       
-        
 
 

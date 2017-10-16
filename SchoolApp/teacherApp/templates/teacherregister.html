@@ -1,7 +1,7 @@
 <html>
 <head>
 <title></title>
-<link rel="stylesheet" type="text/css" href="{{url_for('page.static',filename='loginscreen.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('page.static', filename='register.css')}}">
 <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -10,15 +10,26 @@
 
 
 <body>
- <div class="container">
+ <div class="container">   
 <div class="row top">
   <div class="col s8">
-<div class="hello">Witaj!</div>
+<div class="hello">Zarejestruj się!</div>
   </div>
 </div>
 <div class="row bottom">
     <form>
   <div class="col s12 content">
+
+      <div class="row">
+          <div class="input-field col s6">
+            <input name="teacher_code" id="teacher_code" type="text" class="validate">
+            <label for="teacher_code">Kod rejstracji</label>
+          </div>
+          <div class="input-field col s6">
+            <input name="teacher_pass" id="teacher_pass" type="text" class="validate">
+            <label for="teacher_pass">Hasło rejstracji</label>
+          </div>
+        </div>
     <div class="row">
       <div class="input-field col s12">
         <input name="email" id="email" type="email" class="validate">
@@ -31,19 +42,12 @@
         <label for="password">Hasło</label>
       </div>
     </div>
-    <a class="forgetpass" href="#">Zapomniałeś hasła?</a>
-
-
-    <label>  {{error}}</label>
-    <button class="btn waves-effect light-blue accent-4 right" type="submit" formmethod="post" formaction="{{object}}" name="action">Zaloguj</button>
+    <button class="btn waves-effect waves-light right" formaction="/teacher/register" formmethod="POST" type="submit" name="action">Utwórz konto</button>
   </div>
     </form>
-  <form><button  formaction="{{object_register}}" class="btn waves-effect light-blue 2 accent-4 right" >Zarejstruj się</button></form>
-
+    <form><button class="btn waves-effect waves-light right" formaction="{{object}}">Posiadasz konto?</button></form>
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 </body>
 </html>
-
-

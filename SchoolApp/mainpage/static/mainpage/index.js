@@ -1,7 +1,7 @@
 function loginteacher(){
 $.ajax({
   type: 'GET',
-  url: "/loginteacher",
+  url: "/teacher/login",
   context: document
 }).done(function(response) {
   $('html').html(response);
@@ -9,7 +9,7 @@ $.ajax({
 }function loginstudent(){
 $.ajax({
   type: 'GET',
-  url: "/loginstudent",
+  url: "/student/login",
   context: document
 }).done(function(response) {
   $('html').html(response);

@@ -7,13 +7,20 @@ apicont = api.apiController([],[])
 
 @adminpanel.route('/login', methods=['GET','POST'])
 def login():
+    error = ''
+    code = ''
     if request.method == 'POST':
-        code = apicont.login(request.form['school_code'],request.form['school_pass'])
-        if code != 'error':
-            session['school_id']= code
-            session['logged_as']='admin'
-            return redirect('/admin')
-    return render_template('adminloginscreen.html')
+        try:
+            code = apicont.login(request.form['school_code'],request.form['school_pass'])
+            if code != 'error':
+                session['school_id']= code
+                session['logged_as']='admin'
+                return redirect('/admin')
+            else:
+                error = 'Błędne dane'
+        except:
+            error = 'Brak połączenia'
+    return render_template('adminloginscreen.html', error = error)
 
 @adminpanel.route('/')
 def index():    
@@ -89,12 +96,9 @@ def studentform(command = None, element =None):
 def assingedclasses(command = None, element = None):
     if session.get('logged_as') != 'admin':
         return redirect('/admin/login', code=302)
-    print(apicont.current_teacher_name)
-    print(element)
     if command == 'add':
         apicont.addassigmenttolist(element,session.get('school_id'))
     if command == 'delete':
-        print("delete")
         apicont.deletefromassigmentlist(element,session.get('school_id'))
     content = {
         'assinged_classes': apicont.getassigmentlist(element,session.get('school_id')),

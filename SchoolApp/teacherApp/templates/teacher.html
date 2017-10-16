@@ -1,51 +1,40 @@
 <html>
-<head>
-<title></title>
-<link rel="stylesheet" type="text/css" href="{{ url_for('teacherpage.static', filename='teacher.css') }}">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-</head>
-<body>
-    <div class="row">
-        <div class="col s12">
-            <div class="row">
-                <div class="col classcol1 s1"><div class="row">Klasy</div></div>
-                <div class="col studentscol1 s11"><div class="row">Uczniowie</div></div>
-            </div>
-            <div class="row">
-                 <div class="col classcol2 s1">
-                     {%for class in content['classeslist']%}
-                    <div class="row"> <a class="waves-effect light-blue btn classbtn">{{class}}</a> </div>
-                     {%endfor%}
-            </div>
-                 <div class="col studentscol2 s11">
-                     <div class="row">
-                         <div class="col labelcol s9">
-                             <label>Imię i nazwisko</label>
-                         </div>
-                         <div class="col pointscol s1">Punkty 48</div>
-                         <div class="col buttoncol s2">
-                             <a class="waves-effect waves-light btn plus">+</a>
-                             <a class="waves-effect waves-light btn minus">-</a>
-                         </div>
-                     </div>
-                     <div class="row">
-                        <div class="col labelcol s9">
-                           <label>Imię i nazwisko</label>
-                        </div>
-                        <div class="col pointscol s1">Punkty 48</div>
-                        <div class="col buttoncol s2">
-                           <a class="waves-effect waves-light btn plus">+</a>
-                           <a class="waves-effect waves-light btn minus">-</a>
-                        </div>
-                     </div>
-                 </div>
-            </div>
-</div>
-</div>
-<script type="text/javascript" src="{{ url_for('teacherpage.static', filename='classswap.js') }}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-</body>
-</html>
+  <head>
+  <title></title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('teacherpage.static', filename='teacher.css') }}">
+  <link rel="stylesheet" type="text/css" href="teacherprofile.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  </head>
+  <body>
+     <div class="row">
+         <div class="col s12">
+
+
+                 <div class="col studentscol1 s11 right"><div class="row">Uczniowie</div></div>
+
+             <div class="row">
+                  <div class="col classcol2 s1">
+                      {%for class in content['classes']%}
+                     <div class="row"> <a onclick=" classswap('{{class}}')" class="waves-effect light-blue btn classbtn">{{class}}</a> </div>
+                      {%endfor%}
+             </div>
+                  <div id="class_members" class="col studentscol2 s11">
+
+
+                  </div>
+             </div>
+  </div>
+  </div>
+  <script type="text/javascript" src="{{ url_for('teacherpage.static', filename='classswap.js') }}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  </body>
+  </html>
+
+
+
+
+
+
 
 

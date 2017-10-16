@@ -1,20 +1,13 @@
+{%for student in content['students_ofclass']%}
+                        <div class="row">
+                         <div class="col labelcol s9">
+                            <label>{{student}}</label>
+                         </div>
+                         <div class="col pointscol s1">Punkty 48</div>
+                         <div class="col buttoncol s2">
+                            <a class="waves-effect waves-light btn plus">+</a>
+                            <a class="waves-effect waves-light btn minus">-</a>
+                         </div>
+                      </div>
 
-            <div class="row rowpoints">
-          <div class="col s8">
-
-
-            <label class="name" for="last_name">XDD</label>
-          </div>
-          <div>
-          <div class="col s2">
-                <div class="points">Punkty</div>
-                <div class="number">49</div>
-                </div>
-                <div class="col plusminusmargin s2">
-
-                <a class="waves-effect waves-light btn plus">+</a>
-                <a class="waves-effect waves-light btn minus">-</a>
-
-         </div>
-            </div>
-
+{%endfor%}

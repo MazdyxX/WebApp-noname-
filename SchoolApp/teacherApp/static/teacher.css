@@ -1,53 +1,54 @@
 .col{
     padding-left:0% !important;
     padding-right:0% !important;
-}
-body{
+ }
+ body{
     background-color:#FFFFFF !important;
-}
-.row{
+ }
+ .row{
     margin-bottom:0% !important;
-}
 
-.classcol1{
+ }
+
+ .classcol1{
     padding:0% !important;
     padding-left:0.3% !important;
     padding-right:1% !important;
     font-size:250% !important;
-    border-right:2px dashed;
-    border-right-color:#4878A8;
-   color:white;
+    color:white;
     background-color:#F07830;
-}
-.classcol2{
-     padding:0% !important;
-    border-right:2px dashed;
-    border-right-color:#4878A8;
+    text-align: center;
+ }
+ .classcol2{
+    padding:0% !important;
+    border-right:0.5px solid;
+    border-right-color:#487890;
     height:100% !important;
-}
-.studentscol1{
+ }
+ .studentscol1{
     padding:0% !important;
     font-size:250% !important;
     padding-left:0.5% !important;
     padding-right:0.5% !important;
-    background-color:#F07830;
     padding-left:15% !important;
+    text-align: left;
     margin-left:0.5%;
+    background-color:#F07830;
     color:white;
  }
-.studentscol2{
+ .studentscol2{
     padding:0% !important;
     height:100% !important;
     padding-left:0.5% !important;
     padding-right:0.5% !important;
     margin-top:0.1% !important;
-}
-.classbtn{
+ }
+ .classbtn{
     width:100% !important;
-    margin-top:1% !important;
+    margin-bottom:5% !important;
     background-color:#F07830 !important;
-}
-.plus{
+ }
+ .plus{
     background-color:#007849 !important;
     display:inline-block !important;
     padding:13% !important;
@@ -63,19 +64,23 @@ body{
     font-size:150% !important;
     margin-right:5%;
     }
-.rowborder{
+ .rowborder{
     border:1px solid black;
-}
-.labelcol{
+ }
+ .labelcol{
     padding-top:0.9% !important;
     padding-bottom:0.9% !important;
-}
-.pointscol{
+    padding-left:0.1%;
+    border-bottom:0.5px solid;
+    border-bottom-color:#E3DEDE;
+ }
+ .pointscol{
     padding-top:1% !important;
     padding-bottom:1% !important;
-}
-.buttoncol{
+ }
+ .buttoncol{
     padding-top:0.3% !important;
     padding-bottom:0.3% !important;
 
-}
+ }
+

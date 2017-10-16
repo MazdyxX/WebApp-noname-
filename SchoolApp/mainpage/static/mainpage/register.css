@@ -1,0 +1,35 @@
+
+html {
+    font-family: 'Hammersmith One', sans-serif;
+    letter-spacing: 2px;
+   
+  }
+  .top{
+      background-color:rgb(1, 174, 226);
+      margin-bottom:0% !important;
+      margin-top:7%;
+      padding-top:5%;
+      padding-bottom: 5%;
+      padding-left: 5%;
+      padding-right: 5%;
+  }
+  .bottom{
+      background-color:rgb(235, 235, 235);
+      padding-top:5%;
+      padding-bottom: 5%;
+      padding-left: 5%;
+      padding-right: 5%;
+  }
+  .hello{
+      color:white;
+      font-size:400%;
+     
+  }
+  .btn{
+    background-color:rgb(1, 174, 226) !important;
+    margin-top:1% !important;
+  }
+  .forgetpass{
+      color:rgb(1, 174, 226);
+      margin-top:2%;
+  }
