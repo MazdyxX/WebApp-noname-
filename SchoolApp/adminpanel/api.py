@@ -95,12 +95,15 @@ class apiController:
         return data
 
     #############################################
-
+    def requestget_noresponse(self, url):
+        rq_url = self.mainurl + url
+        requests.get(rq_url)
+        return 
     def addassigmenttolist(self,element,school_id):
-        self.requestget('/class/setTeacher/'+self.current_teacher_name+'/'+school_id+'/'+element)
+        self.requestget_noresponse('/class/setTeacher/'+self.current_teacher_name+'/'+school_id+'/'+element)
         return
     def deletefromassigmentlist(self,element,school_id):
-        self.requestget('/class/removeTeacher/'+self.current_teacher_name+'/'+school_id+'/'+element)
+        self.requestget_noresponse('/class/removeTeacher/'+self.current_teacher_name+'/'+school_id+'/'+element)
         return
     def getassigmentlist(self,teacher_id,school_id):
         data = self.requestget('/class/show/'+teacher_id+'/'+school_id)
