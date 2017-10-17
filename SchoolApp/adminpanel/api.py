@@ -77,8 +77,9 @@ class apiController:
     def addtoformlist(self,element):
         self.students_list.append(element)
         return
-    def deletefromformlist(self,element):
+    def deletefromformlist(self,element,school_id):
         self.students_list.remove(element)
+        self.postformlist(school_id)
         return
     def getformlist(self,class_id, school_id):
         data = self.requestget('/class/get/'+class_id+'/'+school_id).json()

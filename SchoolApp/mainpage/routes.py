@@ -16,14 +16,6 @@ def home():
     if request.method == 'GET':
         return render_template('mainpage/index.html', **content)
 
-@page.route('/loginstudent', methods=['GET','POST']) #login page
-def loginstudent():
-    if request.method == 'GET':
-
-        return render_template('loginpage/loginscreen.html', object = '/loginstudent' )
-    if request.method == 'POST':
-        if check():
-            return redirect('/student')
 
 
 

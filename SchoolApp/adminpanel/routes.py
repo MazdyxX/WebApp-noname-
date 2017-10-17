@@ -76,11 +76,11 @@ def studentform(command = None, element =None):
     if command == 'initialize':
         apicont.getformlist(element,session.get('school_id'))
     elif command =='save':
-        test = apicont.postformlist(session.get('school_id'))
+        apicont.postformlist(session.get('school_id'))
     elif command =='add':
         apicont.addtoformlist(element)
     elif command =='delete':
-        apicont.deletefromformlist(element)
+        apicont.deletefromformlist(element,session.get('school_id'))
 
     content = {
         'students': apicont.students_list

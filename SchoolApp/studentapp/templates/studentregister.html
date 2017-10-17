@@ -17,15 +17,17 @@
   </div>
 </div>
 <div class="row bottom">
+    <form>
   <div class="col s12 content">
+
       <div class="row">
           <div class="input-field col s6">
-            <input name="teacher_code" id="teacher_code" type="text" class="validate">
-            <label for="teacher_code">Imię</label>
+            <input name="student_code" id="student_code" type="text" class="validate">
+            <label for="student_code">Kod rejstracji</label>
           </div>
           <div class="input-field col s6">
-            <input name="teacher_pass" id="teacher_pass" type="text" class="validate">
-            <label for="teacher_pass">Nazwisko</label>
+            <input name="student_pass" id="student_pass" type="text" class="validate">
+            <label for="student_pass">Hasło rejstracji</label>
           </div>
         </div>
     <div class="row">
@@ -40,12 +42,12 @@
         <label for="password">Hasło</label>
       </div>
     </div>
-    <button class="forgetpass" onclick="">Posiadasz konto?</button>
-    <button class="btn waves-effect waves-light right" formaction="{{object}}" type="submit" name="action">Utwórz konto</button>
+    <button class="btn waves-effect waves-light right" formaction="/student/register" formmethod="POST" type="submit" name="action">Utwórz konto</button>
   </div>
+    </form>
+    <form><button class="btn waves-effect waves-light right" formaction="{{object}}">Posiadasz konto?</button></form>
 </div>
 </div>
- <script type="text/javascript" src="{{ url_for('page.static', filename='index.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 </body>
 </html>
