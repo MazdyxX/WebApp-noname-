@@ -1,0 +1,68 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="ranking.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+  </head>
+  <body>
+    
+  <nav>
+      <div class="nav-wrapper">
+        <a class="brand-logo center">Ranking</a>
+      </div>
+    </nav>
+    <nav class="nav2">
+        <div class="nav-wrapper">
+       <div class="row uprow">
+          <div class="col center-align s2">
+              Miejsce
+          </div>
+          <div class="col center-align s2">
+              Poziom
+          </div>
+          <div class="col center-align s2">
+             Nazwa
+          </div>
+          <div class="col s1 center-align">Sortuj:</div>
+          <div class="col s4 selectable">
+                  <span>
+                   <select class="browser-default">
+                      <option value="" disabled selected>Domyślnie</option>
+                      <option value="1">Miejsce</option>
+                      <option value="2">Nazwa</option>
+                      <option value="3">Poziom</option>
+                    </select> 
+                  </span>
+              </div>
+          </div>
+        </div>
+      </div>
+      </nav>
+      <div class="row rows">
+          <div class="col center-align s2">
+              Place
+          </div>
+          <div class="col center-align s2">
+              Lvl
+          </div>
+          <div class="col center-align s2">
+             Name
+          </div>
+    </div>
+    <div class="row rows">
+        <div class="col center-align s2">
+            Place
+        </div>
+        <div class="col center-align s2">
+            Lvl
+        </div>
+        <div class="col center-align s2">
+           Name
+        </div>
+      </div>
+<script>
+      $('select').material_select();
+</script>
+  </body>
+</html>

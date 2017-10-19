@@ -1,0 +1,48 @@
+html 
+{
+    font-family: 'Hammersmith One', sans-serif;
+    letter-spacing: 2px;  
+}
+nav{
+    background-color: #F38630 !important;
+}
+.nav2{
+    background-color:#E0E4CC !important;
+    color:black;
+}
+.col{
+    padding-left:0% !important;
+    padding-right:0% !important;
+}
+body{
+
+}
+.row{
+    margin-bottom:0% !important;
+    border-style: solid;
+    border-width: 0px 0px 1px 0px;
+    border-color:grey;
+}
+.rows:nth-child(odd){
+background:#A7DBD8;
+padding-top:0.5% !important;
+padding-bottom:0.5% !important;
+}
+.rows:nth-child(even){
+    background:#f5f5f5;
+    padding-top:0.5% !important;
+    padding-bottom:0.5% !important;
+    }
+.uprow{
+    margin:0% !important;
+}
+.selectable{
+    padding-top:0.9% !important;
+    margin-right:1% !important;
+}
+.browser-default{
+    color:black;
+}
+.rows{
+    border:0px !important;
+}

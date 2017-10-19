@@ -74,8 +74,9 @@ class apiController:
     #STUDENTS
     ############################################
 
-    def addtoformlist(self,element):
+    def addtoformlist(self,element, school_id):
         self.students_list.append(element)
+        self.postformlist(school_id)
         return
     def deletefromformlist(self,element,school_id):
         self.students_list.remove(element)
@@ -84,7 +85,8 @@ class apiController:
     def getformlist(self,class_id, school_id):
         data = self.requestget('/class/get/'+class_id+'/'+school_id).json()
         self.current_class_id = class_id
-        self.students_list = data['students']
+        data2 = list((object['name'] for object in data['students']))
+        self.students_list = data2
         return self.students_list
     def postformlist(self,school_id):
         data = {
@@ -93,8 +95,7 @@ class apiController:
             'students': self.students_list
         }
         self.requestpost('/class/changeStudents',data)
-        return data
-
+        return
     #############################################
     def requestget_noresponse(self, url):
         rq_url = self.mainurl + url
@@ -105,7 +106,7 @@ class apiController:
         return
     def deletefromassigmentlist(self,element,school_id):
         self.requestget_noresponse('/class/removeTeacher/'+self.current_teacher_name+'/'+school_id+'/'+element)
-        return
+        return '/class/removeTeacher/'+self.current_teacher_name+'/'+school_id+'/'+element
     def getassigmentlist(self,teacher_id,school_id):
         data = self.requestget('/class/show/'+teacher_id+'/'+school_id)
         self.current_teacher_name = quote(teacher_id)

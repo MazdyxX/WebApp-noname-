@@ -27,7 +27,7 @@ def ApiGet(url_ending):
 @studentpage.route('/login', methods=['GET' ,'POST'])  # login page
 def loginstudent():
     if request.method == 'GET':
-        return render_template('loginpage/loginscreen.html', object = '/student/login', object_register='/student/register', error = '')
+        return render_template('loginpage/loginscreen.html', object = '/student/login', object_register='/student/register', error = '',title = 'Logowanie do konta ucznia')
     if request.method == 'POST':
         data = check_login(request.form['email'] ,request.form['password'])
         if data.status_code != 401:
@@ -36,7 +36,7 @@ def loginstudent():
             session['school_id'] = data.json()['school']
             return redirect('/student')
         else:
-            return render_template('loginpage/loginscreen.html', object = '/student/login', object_register='/student/register', error= 'Błędne dane')
+            return render_template('loginpage/loginscreen.html', object = '/student/login', object_register='/student/register', error= 'Błędne dane', title = 'Logowanie do konta ucznia')
 
 @studentpage.route('/register' ,methods=['GET' ,'POST'])
 def register():
@@ -49,3 +49,30 @@ def register():
         else:
             redirect('/student/login')
     return render_template('studentregister.html', object ='/student/login', error=error)
+
+@studentpage.route('/')
+def studentmenu():
+    if session.get('logged_as') != 'student':
+        return redirect(url_for('studentpage.loginstudent'))
+    return render_template('student.html')\
+
+
+@studentpage.route('/ranking')
+def studentranking():
+    if session.get('logged_as') != 'student':
+        return redirect(url_for('studentpage.loginstudent'))
+    return render_template('ranking.html')
+
+@studentpage.route('/achivements')
+def studentachivements():
+    if session.get('logged_as') != 'student':
+        return redirect(url_for('studentpage.loginstudent'))
+#    return render_template('achivements.html')
+
+@studentpage.route('/game')
+def studentgame():
+    if session.get('logged_as') != 'student':
+        return redirect(url_for('studentpage.loginstudent'))
+   # return render_template('game.html')
+
+

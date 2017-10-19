@@ -1,12 +1,12 @@
 {%for student in content['students_ofclass']%}
                         <div class="row">
                          <div class="col labelcol s9">
-                            <label>{{student}}</label>
+                            <label>{{student['name']}}</label>
                          </div>
-                         <div class="col pointscol s1">Punkty 48</div>
+                         <div class="col pointscol s1">{{student['points']}}</div>
                          <div class="col buttoncol s2">
-                            <a class="waves-effect waves-light btn plus" onclick="plusPoint('{{student}}')">+</a>
-                            <a class="waves-effect waves-light btn minus" onclick="minusPoint('{{student}}')">-</a>
+                            <a class="waves-effect waves-light btn plus" onclick="plusPoint('{{student['name']}}')">+</a>
+                            <a class="waves-effect waves-light btn minus" onclick="minusPoint('{{student['name']}}')">-</a>
                          </div>
                       </div>
 

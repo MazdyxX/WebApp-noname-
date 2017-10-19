@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, request, session, redirect, url_for
 from . import api
+import requests
 
 adminpanel = Blueprint('adminpanel', __name__, template_folder='templates', static_folder='static')
 apicont = api.apiController([],[])
@@ -55,7 +56,6 @@ def classlist(command = None):
 def teacherlist(command = None, element= None):
     if session.get('logged_as') != 'admin':
         return redirect('/admin/login', code=302)
-    print(element)
     if command == 'add':
         apicont.addteacher(element,session.get('school_id'))
     if command == 'delete':   
@@ -78,7 +78,7 @@ def studentform(command = None, element =None):
     elif command =='save':
         apicont.postformlist(session.get('school_id'))
     elif command =='add':
-        apicont.addtoformlist(element)
+        apicont.addtoformlist(element, session.get('school_id'))
     elif command =='delete':
         apicont.deletefromformlist(element,session.get('school_id'))
 
@@ -89,24 +89,23 @@ def studentform(command = None, element =None):
 
 # -------------------------------------------------------------------#
 
-
-@adminpanel.route('/assingedclasses/<command>/<element>')
 @adminpanel.route('/assingedclasses/<element>')
 @adminpanel.route('/assingedclasses')
-def assingedclasses(command = None, element = None):
+def assingedclasses(element = None):
     if session.get('logged_as') != 'admin':
         return redirect('/admin/login', code=302)
-    if command == 'add':
-        apicont.addassigmenttolist(element,session.get('school_id'))
-    if command == 'delete':
-        apicont.deletefromassigmentlist(element,session.get('school_id'))
     content = {
-        'assinged_classes': apicont.getassigmentlist(element,session.get('school_id')),
-        'possible_classes': apicont.getpossibleclasses(session.get('school_id'))
+    'assinged_classes': apicont.getassigmentlist(element, session.get('school_id')),
+    'possible_classes': apicont.getpossibleclasses(session.get('school_id'))
     }
     return  render_template('lists/classes_teacher.html', content = content)
 
 # -------------------------------------------------------------------#
-
-
+@adminpanel.route('/changeassigment/<command>/<element>')
+def change_assigment(command = None, element = None):
+    if command == 'add':
+       apicont.addassigmenttolist(element,session.get('school_id'))
+    if command == 'delete':
+       apicont.deletefromassigmentlist(element,session.get('school_id'))
+    return "refresh"
     

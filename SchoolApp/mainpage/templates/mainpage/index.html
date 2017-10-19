@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <script type="text/javascript" src="{{ url_for('page.static', filename='index.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('page.static', filename='jquery-countTo-master/jquery.countTo.js') }}"></script>
+
 </head>
 <body>
     <div id='fullpage'>
@@ -38,6 +40,9 @@
             <div class='row' style='height:50%; padding:0px; margin:0px;'>
                 <div class='col s12 m6' style='height:100%'>
                     <img style='height:100%' src="{{ url_for('page.static', filename = 'student.png') }}">
+                    Do naszego systemu należą:
+                    <span id="school_num" data-from="0" data-to="{{content['number_of_school']}}" data-speed="1291"></span> Szkoły
+                    <span id="class_num" data-from="0" data-to="{{content['number_of_students']}}" data-speed="1291"></span> Uczniów
                 </div>
                 <div class='col s12 m6' style='height:100%;'>
 
@@ -52,9 +57,14 @@
     </div>
 
     <script>
+        function countUp(){
+           $('#school_num').countTo();
+           $('#class_num').countTo();
+        }
         $(document).ready(function(){
             $('#fullpage').fullpage();
             $('.slider').slider();
+            countUp();
         });
     </script>
     </body>

@@ -16,7 +16,7 @@
     padding-right:1% !important;
     font-size:250% !important;
     color:white;
-    background-color:#F07830;
+    background-color:#F38630;
     text-align: center;
  }
  .classcol2{
@@ -67,7 +67,7 @@
  .rowborder{
     border:1px solid black;
  }
- .labelcol{
+ .labelcol:{
     padding-top:0.9% !important;
     padding-bottom:0.9% !important;
     padding-left:0.1%;
