@@ -61,18 +61,18 @@ def studentmenu():
 def studentranking():
     if session.get('logged_as') != 'student':
         return redirect(url_for('studentpage.loginstudent'))
-    return render_template('ranking.html')
+    return render_template('segments/ranking.html')
 
 @studentpage.route('/achivements')
 def studentachivements():
     if session.get('logged_as') != 'student':
         return redirect(url_for('studentpage.loginstudent'))
-#    return render_template('achivements.html')
+#    return render_template('segments/achivements.html')
 
 @studentpage.route('/game')
 def studentgame():
     if session.get('logged_as') != 'student':
         return redirect(url_for('studentpage.loginstudent'))
-   # return render_template('game.html')
+   # return render_template('segments/game.html')
 
 

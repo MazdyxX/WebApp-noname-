@@ -22,7 +22,7 @@
  .classcol2{
     padding:0% !important;
     border-right:0.5px solid;
-    border-right-color:#487890;
+    border-right-color:#D3D3D3;
     height:100% !important;
  }
  .studentscol1{
@@ -33,7 +33,7 @@
     padding-left:15% !important;
     text-align: left;
     margin-left:0.5%;
-    background-color:#F07830;
+    background-color:#B2C126;
     color:white;
  }
  .studentscol2{
@@ -44,9 +44,13 @@
     margin-top:0.1% !important;
  }
  .classbtn{
-    width:100% !important;
-    margin-bottom:5% !important;
-    background-color:#F07830 !important;
+    width:90% !important;
+    margin-bottom:2.5% !important;
+    margin-left:5% !important;
+    margin-right:5% !important;
+    margin-top:2.5% !important;
+
+    background-color:#B2C126 !important;
  }
  .plus{
     background-color:#007849 !important;
@@ -71,8 +75,7 @@
     padding-top:0.9% !important;
     padding-bottom:0.9% !important;
     padding-left:0.1%;
-    border-bottom:0.5px solid;
-    border-bottom-color:#E3DEDE;
+    background-color:#F2B418;
  }
  .pointscol{
     padding-top:1% !important;

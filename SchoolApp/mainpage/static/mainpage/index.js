@@ -1,18 +1,10 @@
 function loginteacher(){
-$.ajax({
-  type: 'GET',
-  url: "/teacher/login",
-  context: document
-}).done(function(response) {
-  $('html').html(response);
-});
-}function loginstudent(){
-$.ajax({
-  type: 'GET',
-  url: "/student/login",
-  context: document
-}).done(function(response) {
-  $('html').html(response);
-});
+
+window.location.href='/teacher/login';
+
+}
+function loginstudent(){
+
+  window.location.href='/student/login';
 }
 

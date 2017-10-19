@@ -4,45 +4,45 @@ html {
 }
 body{
     overflow: hidden;
-    background:#e9ecdb;
+    background:#F2B418;
 }
 .square1{
     width: 20vw;
     color:white;
     height: 20vw;
-    background-color:#f44336;
+    background-color:#B2C126;
     font-size:3vw !important;
 }
 .square1:hover{
-    height: 21vw;
-    width: 21vw;
-    background-color:#ef5350;
+    height: 20vw;
+    width: 20vw;
+    background-color:#BFCC4F;
 }
 
 .square2{
     width: 20vw;
     color:white;
     height: 20vw;
-    background-color:#03a9f4;
+    background-color:#D61717;
     font-size:3vw !important;
 }
 .square2:hover{
-    height: 21vw;
-    width: 21vw;
-    background-color:#29b6f6;
+    height: 20vw;
+    width: 20vw;
+    background-color:#DB4646;
 }
 
 .square3{
     width: 20vw;
     color:white;
     height: 20vw;
-    background-color:#8bc34a;
+    background-color:#227CBF;
     font-size:3vw !important;
 }
 .square3:hover{
-    height: 21vw;
-    width: 21vw;
-    background-color:#66bb6a;
+    height: 20vw;
+    width: 20vw;
+    background-color:#579FD6;
 }
 
 .row{
