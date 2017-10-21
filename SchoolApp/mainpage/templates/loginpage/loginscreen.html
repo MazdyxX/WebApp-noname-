@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="{{ url_for('page.static', filename='index.js') }}"></script>
 </head>
 
 
@@ -31,15 +32,13 @@
         <label for="password">Hasło</label>
       </div>
     </div>
-    <a class="forgetpass" href="#">Zapomniałeś hasła?</a>
+    <a onclick="changeUrl('{{object_register}}')" class="forgetpass" href="#">Zarejstruj się</a>
 
 
     <label>  {{error}}</label>
     <button class="btn waves-effect light-blue accent-4 right" type="submit" formmethod="post" formaction="{{object}}" name="action">Zaloguj</button>
   </div>
     </form>
-  <form><button  formaction="{{object_register}}" class="btn waves-effect light-blue 2 accent-4 right" >Zarejstruj się</button></form>
-
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>

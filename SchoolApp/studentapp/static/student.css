@@ -4,7 +4,12 @@ html {
 }
 body{
     overflow: hidden;
-    background:#F2B418;
+    background-image:url(back.png);
+========================================================
+ This pattern is downloaded from www.subtlepatterns.com
+ If you need more, that's where to get'em.
+ ========================================================
+
 }
 .square1{
     width: 20vw;
@@ -47,42 +52,84 @@ body{
 
 .row{
     height:25% !important;
-    width:100% !important;
     margin:0% !important;
 }
 
 .img{
-    margin-top:10% !important;
+    margin-top:5% !important;
+    height:200% !important;
+    width:45% !important;
+
+
 }
 .img2{
-    margin-top:17% !important;
+    margin-top:5% !important;
+    height:145% !important;
+    width:60% !important;
+
+
 }
 
 
 .row1{
     margin:0% !important;
     height:33.33% !important;
-    background-color:red !important;
+    background-color:#B2C126;
+    color:white;
+    font-size:150% !important;
+}
+.row1:hover{
+    margin:0% !important;
+    height:33.33% !important;
+    background-color:#BFCC4F;
     color:white;
     font-size:150% !important;
 }
 .row2{
     margin:0% !important;
     height:33.33% !important;
-    background-color:rgb(109, 192, 0) !important;
+    background-color:#D61717;
     color:white;
     font-size:150% !important;
 }
-
+.row2:hover{
+    margin:0% !important;
+    height:33.33% !important;
+    background-color:#DB4646;
+    color:white;
+    font-size:150% !important;
+}
 .row3{
     margin:0% !important;
     height:33.33% !important;
-    background-color:rgb(0, 153, 255) !important;
+    background-color:#227CBF;
+    color:white;
+    font-size:150% !important;
+}
+.row3:hover{
+    margin:0% !important;
+    height:33.33% !important;
+    background-color:#579FD6;
     color:white;
     font-size:150% !important;
 }
 .mimg{
    height:70% !important;
 }
+.col{
+    padding:0% !important;
+   display:inline-block;
 
+}
+.betweencol{
+    margin-left:2% !important;
+    margin-right:2% !important;
+}
+.img:hover
+{
+    transform: scale(1.1);
+}
+.mimg:hover{
+    transform: scale(1.1);
 
+}

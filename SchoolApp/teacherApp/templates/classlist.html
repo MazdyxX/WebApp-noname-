@@ -1,9 +1,10 @@
+<script type="text/javascript" src="{{ url_for('teacherpage.static', filename='classswap.js') }}"></script>
 {%for student in content['students_ofclass']%}
-                        <div class="row">
+                <div class="row rowcolor">
                          <div class="col labelcol s9">
-                            <label>{{student['name']}}</label>
+                            <label class="label" >{{student['name']}}</label>
                          </div>
-                         <div class="col pointscol s1">{{student['points']}}</div>
+                         <div  class="col pointscol s1">Punkty: {{student['points']}}</div>
                          <div class="col buttoncol s2">
                             <a class="waves-effect waves-light btn plus" onclick="plusPoint('{{student['name']}}')">+</a>
                             <a class="waves-effect waves-light btn minus" onclick="minusPoint('{{student['name']}}')">-</a>
@@ -11,3 +12,4 @@
                       </div>
 
 {%endfor%}
+

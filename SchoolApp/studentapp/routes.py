@@ -27,16 +27,17 @@ def ApiGet(url_ending):
 @studentpage.route('/login', methods=['GET' ,'POST'])  # login page
 def loginstudent():
     if request.method == 'GET':
-        return render_template('loginpage/loginscreen.html', object = '/student/login', object_register='/student/register', error = '',title = 'Logowanie do konta ucznia')
+        return render_template('loginpage/loginscreen.html', object = '/student/login', object_register='/student/register', error = '',title = 'Zaloguj jako uczeń')
     if request.method == 'POST':
         data = check_login(request.form['email'] ,request.form['password'])
         if data.status_code != 401:
+            session['student_id'] = data.json()['_id']
             session['student_name'] = data.json()['name']
             session['logged_as'] = 'student'
             session['school_id'] = data.json()['school']
             return redirect('/student')
         else:
-            return render_template('loginpage/loginscreen.html', object = '/student/login', object_register='/student/register', error= 'Błędne dane', title = 'Logowanie do konta ucznia')
+            return render_template('loginpage/loginscreen.html', object = '/student/login', object_register='/student/register', error= 'Błędne dane', title = 'Zaloguj jako uczeń')
 
 @studentpage.route('/register' ,methods=['GET' ,'POST'])
 def register():
@@ -61,18 +62,29 @@ def studentmenu():
 def studentranking():
     if session.get('logged_as') != 'student':
         return redirect(url_for('studentpage.loginstudent'))
-    return render_template('segments/ranking.html')
+    response = ApiGet('/game/ranking/thropy/' + session.get('school_id')).json()
+    return render_template('segments/ranking.html',users= response)
 
 @studentpage.route('/achivements')
 def studentachivements():
     if session.get('logged_as') != 'student':
         return redirect(url_for('studentpage.loginstudent'))
-#    return render_template('segments/achivements.html')
+    return render_template('segments/achievements.html')
 
 @studentpage.route('/game')
-def studentgame():
+@studentpage.route('/game/upgrade/<building>')
+def studentgame(building = None):
     if session.get('logged_as') != 'student':
         return redirect(url_for('studentpage.loginstudent'))
-   # return render_template('segments/game.html')
+    if building:
+        ApiGet('/game/upgrade/'+building+'/'+session.get('student_id'))
+    game_data = ApiGet('/game/data/' + session.get('student_id')).json()
+    print(session.get('student_id'))
+    values= {
+        'trophies' : game_data['trophy'] ,
+        'development_points' : game_data['points'],
+    }
+
+    return render_template('segments/game.html', values = values, buildings_data = game_data['buildings'], test= False)
 
 

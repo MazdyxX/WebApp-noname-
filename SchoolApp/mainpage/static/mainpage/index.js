@@ -7,4 +7,7 @@ function loginstudent(){
 
   window.location.href='/student/login';
 }
+function changeUrl(url){
+ window.location.href=url;
+}
 

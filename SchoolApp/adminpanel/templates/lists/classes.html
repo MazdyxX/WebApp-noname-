@@ -1,6 +1,6 @@
 {%for class in content['classes']%}
-        <a onclick="showclass('{{class}}')" id="{{class}}"  class="waves-effect waves-light btn z-depth-4"><i class="material-icons">supervisor_account</i>{{class}}</a>
-        <a onclick="delclass('{{class}}')" id="del_{{class}}" class="waves-effect waves-light btn kick z-depth-4"><i class="material-icons kickleft">do_not_disturb_alt</i></a>
+        <a onclick="showclass('{{class}}')" id="{{class}}"  class="waves-effect blue lighten-1 btn z-depth-4">{{class}}</a>
+        <a onclick="delclass('{{class}}')" id="del_{{class}}"  class="waves-effect red lighten-1 btn kick z-depth-4"><i class="material-icons kickleft">do_not_disturb_alt</i></a>
 {%endfor%}
  <!--Dodaj klasę-->
                     <div class="row white">
@@ -15,7 +15,15 @@
                         </div>
                       <div class="row ">
  <!--Przycisk dodania klasy-->
-                          <a onclick="addclass()" id="addclassbtn" class="waves-effect waves-light btn z-depth-4"><i class="material-icons">supervisor_account</i>Dodaj oddział</a>
+                          <a onclick="addclass()" id="addclassbtn" class="waves-effect light-green btn z-depth-4">Dodaj klasę</a>
+                        </div>
+                        <div class="row ">
+                            <label>Kody rejstracji dla ucznów</label>
+                          <a onclick="studentcodes()" id="givecodes" class="waves-effect blue lighten-1 btn z-depth-4">Generuj</a>
+                        </div>
+                        <div class="row ">
+                            <label>Kody rejstracji dla nauczycieli</label>
+                          <a onclick="teachercodes()" id="givetcodes" class="waves-effect blue lighten-1 btn z-depth-4">Generuj</a>
                         </div>
 
 

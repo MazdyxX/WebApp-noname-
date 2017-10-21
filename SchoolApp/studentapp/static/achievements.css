@@ -1,0 +1,68 @@
+html {
+    font-family: 'Hammersmith One', sans-serif;
+    letter-spacing: 2px;
+   
+  }
+  body{
+   
+      
+  }
+
+
+.carousel{
+ 
+height:606px !important;
+width:606px !important;
+display: block;
+margin:auto;
+width: 40%;
+}
+.carousel-item{
+    
+    width:90% !important;
+    height:80% !important;
+    background-color: lightsteelblue !important;
+}
+
+
+
+nav{
+    background-color: #F07830 !important;
+  
+}
+
+.img1{
+    width:75% !important;
+    margin-top:8% !important;
+}
+.stars{
+    
+}
+.mainrow{
+height:20% !important;
+width:100% !important;
+position:absolute;
+margin-top:10px !important;
+}
+.col{
+     padding:0% !important;
+}
+.rows{
+    padding-left:1% !important;
+}
+.img2{
+
+margin-top:2.8% !important;
+}
+.imguczen2{
+    width:67% !important;
+    margin-top:11% !important;
+}
+.imguczen{
+    margin-left:4px !important;
+    margin-top:8% !important;
+
+}
+.rowmobile{
+    margin-top:30px !important;
+}

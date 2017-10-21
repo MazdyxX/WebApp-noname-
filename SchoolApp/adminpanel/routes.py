@@ -108,4 +108,13 @@ def change_assigment(command = None, element = None):
     if command == 'delete':
        apicont.deletefromassigmentlist(element,session.get('school_id'))
     return "refresh"
+@adminpanel.route('/generate/<item>')
+def givecodes(item=None):
+    if item == 'teacher':
+        response = requests.get('http://unityddl.azurewebsites.net/school/teacher/unregistered/' + session.get('school_id')).json()
+        return render_template('lists/codes.html', codes=response)
+    if item == 'students':
+        response = requests.get('http://unityddl.azurewebsites.net/school/classes/'+session.get('school_id')).json()
+        response = list((object['students'] for object in response['classes']))
+        return render_template('lists/codes.html', codes = response)
     

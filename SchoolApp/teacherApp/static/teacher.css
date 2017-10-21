@@ -12,45 +12,36 @@
 
  .classcol1{
     padding:0% !important;
-    padding-left:0.3% !important;
-    padding-right:1% !important;
     font-size:250% !important;
     color:white;
-    background-color:#F38630;
+    background-color:#F07830;
     text-align: center;
  }
  .classcol2{
     padding:0% !important;
-    border-right:0.5px solid;
-    border-right-color:#D3D3D3;
+    border-right:1px solid;
+    border-right-color:#eceff1  ;
     height:100% !important;
  }
  .studentscol1{
     padding:0% !important;
     font-size:250% !important;
-    padding-left:0.5% !important;
-    padding-right:0.5% !important;
-    padding-left:15% !important;
-    text-align: left;
+    background-color:rgb(240,120,48);
+    padding-right:15% !important;
+    text-align: center;
     margin-left:0.5%;
-    background-color:#B2C126;
     color:white;
  }
  .studentscol2{
     padding:0% !important;
     height:100% !important;
-    padding-left:0.5% !important;
-    padding-right:0.5% !important;
-    margin-top:0.1% !important;
+
  }
  .classbtn{
-    width:90% !important;
-    margin-bottom:2.5% !important;
-    margin-left:5% !important;
-    margin-right:5% !important;
-    margin-top:2.5% !important;
-
-    background-color:#B2C126 !important;
+    width:92% !important;
+    margin-top:4% !important;
+    margin-left:4%;
+    margin-right:4%;
  }
  .plus{
     background-color:#007849 !important;
@@ -71,11 +62,9 @@
  .rowborder{
     border:1px solid black;
  }
- .labelcol:{
+ .labelcol{
     padding-top:0.9% !important;
     padding-bottom:0.9% !important;
-    padding-left:0.1%;
-    background-color:#F2B418;
  }
  .pointscol{
     padding-top:1% !important;
@@ -86,4 +75,15 @@
     padding-bottom:0.3% !important;
 
  }
+ .rowcolor:nth-child(odd){
+    background:#F9EDED;
+}
+ .rowcolor:nth-child(even){
+    background:#f2d487;
+}
+.label{
+ font-size:105%;
+ padding-left:1.5%;
+ color:black;
+}
 

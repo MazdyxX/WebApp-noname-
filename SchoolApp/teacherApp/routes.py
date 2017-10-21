@@ -32,7 +32,7 @@ def ApiGet(url_ending):
 @teacherpage.route('/login', methods=['GET','POST']) #login page
 def loginteacher():
     if request.method == 'GET':
-        return render_template('loginpage/loginscreen.html', object = '/teacher/login', object_register='/teacher/register', error = '',title = 'Logowanie do konta nauczyciela')
+        return render_template('loginpage/loginscreen.html', object = '/teacher/login', object_register='/teacher/register', error = '',title = 'Zaloguj jako nauczyciel')
     if request.method == 'POST':
         data = check_login(request.form['email'],
                            request.form['password'])
@@ -42,7 +42,7 @@ def loginteacher():
             session['school_id'] = data.json()['school']
             return redirect('/teacher')
         else:
-            return render_template('loginpage/loginscreen.html', object = '/teacher/login', object_register='/teacher/register', error= 'Błędne dane', title = 'Logowanie do konta nauczyciela')
+            return render_template('loginpage/loginscreen.html', object = '/teacher/login', object_register='/teacher/register', error= 'Błędne dane', title = '')
         
 @teacherpage.route('/register',methods=['GET','POST'])
 def register():
@@ -82,7 +82,6 @@ def class_list(class_id = None):
 
 @teacherpage.route('/<command>/<student_name>')
 def changepoints(command = None, student_name = None):
-    print("plusing called")
     if command == 'plus':
         ApiGet('/student/addPoints/' + student_name + '/'+session.get('current_class')+'/' + session.get('school_id'))
     if command == 'minus':

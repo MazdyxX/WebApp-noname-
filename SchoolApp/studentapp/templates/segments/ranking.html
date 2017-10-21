@@ -1,112 +1,61 @@
+
 <html>
-  <head>
-    <link rel="stylesheet" type="text/css" href="{{url_for('studentpage.static', filename='ranking.css')}}">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
-  </head>
-  <body>
-    
-  <nav>
-      <div class="nav-wrapper">
-        <a class="brand-logo center">Ranking</a>
-      </div>
-    </nav>
-    <nav class="nav2">
+    <head>
+            <link rel="icon" href="data:image/png;base64,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" />
+      <link rel="stylesheet" type="text/css" href="{{url_for('studentpage.static', filename='ranking.css')}}">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+      <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+        <script type="text/javascript" src="{{ url_for('studentpage.static', filename='student.js') }}"></script>
+    </head>
+    <body>
+
+    <nav>
         <div class="nav-wrapper">
-       <div class="row uprow">
-          <div class="col center-align s2">
-              Miejsce
-          </div>
-          <div class="col center-align s2">
-              Poziom
-          </div>
-          <div class="col center-align s2">
-             Nazwa
-          </div>
-          <div class="col s1 center-align">Sortuj:</div>
-          <div class="col s4 selectable">
-                  <span>
-                   <select class="browser-default">
-                      <option value="" disabled selected>Domyślnie</option>
-                      <option value="1">Miejsce</option>
-                      <option value="2">Nazwa</option>
-                      <option value="3">Poziom</option>
-                    </select> 
-                  </span>
-              </div>
-          </div>
+          <a class="brand-logo">Ranking</a>
         </div>
-      </div>
       </nav>
-      <div class="row rows">
+      <nav class="nav2">
+          <div class="nav-wrapper">
+         <div class="row uprow">
+            <div class="col center s2">
+                Miejsce
+            </div>
+            <div class="col center s2">
+                Poziom
+            </div>
+            <div class="col center s2">
+               Nazwa
+            </div>
+            </div>
+            </div>
+        </nav>
+         <div id="ranks">
+
+{%for user in users%}
+
+        <div class="rowscroll">
+        <div class="row rows ">
           <div class="col center-align s2">
-              1
+              {{loop.index}}
           </div>
           <div class="col center-align s2">
-              5
+              {{user['trophy']}}
           </div>
           <div class="col center-align s2">
-             Tomek
+             {{user['name']}}
           </div>
-    </div>
-  <div class="row rows">
-          <div class="col center-align s2">
-              1
-          </div>
-          <div class="col center-align s2">
-              5
-          </div>
-          <div class="col center-align s2">
-             Tomek
-          </div>
-    </div>
-  <div class="row rows">
-          <div class="col center-align s2">
-              1
-          </div>
-          <div class="col center-align s2">
-              5
-          </div>
-          <div class="col center-align s2">
-             Tomek
-          </div>
-    </div>
-  <div class="row rows">
-          <div class="col center-align s2">
-              1
-          </div>
-          <div class="col center-align s2">
-              5
-          </div>
-          <div class="col center-align s2">
-             Tomek
-          </div>
-    </div>
-  <div class="row rows">
-          <div class="col center-align s2">
-              1
-          </div>
-          <div class="col center-align s2">
-              5
-          </div>
-          <div class="col center-align s2">
-             Tomek
-          </div>
-    </div>
-    <div class="row rows">
-        <div class="col center-align s2">
-            2
+         </div>
         </div>
-        <div class="col center-align s2">
-            4
-        </div>
-        <div class="col center-align s2">
-           Ania
-        </div>
-      </div>
-<script>
-      $('select').material_select();
-</script>
-  </body>
-</html>
+{%endfor%}
+    </div>
+
+
+
+
+
+  <script>
+        $('select').material_select();
+  </script>
+    </body>
+  </html>

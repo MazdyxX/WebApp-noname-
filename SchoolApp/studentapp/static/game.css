@@ -1,0 +1,76 @@
+html 
+{
+    font-family: 'Hammersmith One', sans-serif;
+    letter-spacing: 2px;  
+}
+body{
+background-color:#227cbf;
+}
+nav{
+    background-color: #227cbf !important;
+    height:10% !important;
+    margin: 0% !important;
+    font-size:80% !important;
+    min-height:60px !important;
+}
+
+.row{
+    margin:0% !important;
+    padding:0% !important;
+}
+
+.rows{
+    padding-bottom:0.74% !important;
+    padding-top:0.74% !important;
+    background-color:#f2d487;
+    border:1px solid grey;
+}
+.imgrooms{
+    width:36% !important;
+    height:11% !important;
+    min-width:60px !important;
+    min-height:55px !important;
+}
+.cols{
+  margin-top:2.2% !important;
+    
+}
+.lvl{
+margin-top:3% !important;
+}
+.btn{
+    width:32% !important;
+    padding-left:4% !important;
+    padding-right:4% !important;
+    min-width:120px !important;
+    max-width:200px !important;
+    background-color:#b2c126 !important;
+}
+.icon{
+    margin-left:5% !important;
+   margin-right:2% !important;
+}
+.row1{
+    margin-top:-5.5% !important;
+    min-width:120px !important;
+}
+.row2{
+    min-width:120px !important;
+}
+.labtxt{
+    color:white;
+}
+.labtxt2{
+    color:black;
+}
+.colnavtext{
+    text-align:right;
+}
+.textinrows{
+    font-size:100% !important;
+   
+
+}
+.colsmob{
+    margin-top:5% !important;
+}

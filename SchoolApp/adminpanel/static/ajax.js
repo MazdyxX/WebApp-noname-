@@ -7,7 +7,7 @@ $(document).ready(function(){
 
 function showclass(class_id){//shows class members
     get('studentform/initialize/'+class_id,'#editcontainer');
-    set_title("Uczniowie w klasie "+class_id)
+    set_title("Klasa "+class_id)
 }
 function addclass(){  //adds class
     post($('#new_class').val(), '/add')
@@ -31,7 +31,7 @@ console.log("test")
 
 function show_assingedclasses(teacher_name){ // shows classes assinged to teacher
     get('assingedclasses/'+teacher_name,'#editcontainer')
-    set_title("Klasy uczone przez "+teacher_name)
+    set_title(teacher_name)
 }
 function addteacher(){                // adds teacher
     get('teacherlist/add/'+$('#new_teacher').val(),'#teacherlist')
@@ -73,31 +73,40 @@ function removeclassassigment(element){
 
 ///////////////////////////////////////////////////////////////
 
-    function get(item, place){
-            $.ajax({
-                 type: 'GET',
-                 url: '/admin/' + item,
-            }).done(function(response){
-                $(place).html(response);
-            });
-     }
-     function post(data,command){
-            $.ajax({
-                url: "/admin/classeslist" + command,
-                type: "POST",
-                data: JSON.stringify(data),
-                contentType: "application/json",
+function get(item, place){
+        $.ajax({
+             type: 'GET',
+             url: '/admin/' + item,
+        }).done(function(response){
+            $(place).html(response);
         });
-     }
-     function postlist(data,command){
-            $.ajax({
-                url: "/admin/" + command,
-                type: "POST",
-                data: JSON.stringify(data),
-                contentType: "application/json",
-        });
-     }
-     function set_title(title){
-         $("#title").text(title)
-     }
+ }
+ function post(data,command){
+        $.ajax({
+            url: "/admin/classeslist" + command,
+            type: "POST",
+            data: JSON.stringify(data),
+            contentType: "application/json",
+    });
+ }
+ function postlist(data,command){
+        $.ajax({
+            url: "/admin/" + command,
+            type: "POST",
+            data: JSON.stringify(data),
+            contentType: "application/json",
+    });
+ }
+ function set_title(title){
+     $("#title").text(title)
+ }
+ ////////////////////////////////////////////////////////////////
+function studentcodes(){
+    get('generate/students','#editcontainer');
+
+}
+
+function teachercodes(){
+    get('generate/teacher','#editcontainer');
+}
 
